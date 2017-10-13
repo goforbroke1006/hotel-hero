@@ -69,14 +69,17 @@ public class EmbeddedJetty {
     }
 
     private static void addRuntimeShutdownHook(final Server server) {
-        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-            if (server.isStarted()) {
-                server.setStopAtShutdown(true);
-                try {
-                    server.stop();
-                } catch (Exception e) {
-                    System.out.println("Error while stopping jetty server: " + e.getMessage());
-                    LOGGER.error("Error while stopping jetty server: " + e.getMessage(), e);
+        Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
+            @Override
+            public void run() {
+                if (server.isStarted()) {
+                    server.setStopAtShutdown(true);
+                    try {
+                        server.stop();
+                    } catch (Exception e) {
+                        System.out.println("Error while stopping jetty server: " + e.getMessage());
+                        LOGGER.error("Error while stopping jetty server: " + e.getMessage(), e);
+                    }
                 }
             }
         }));

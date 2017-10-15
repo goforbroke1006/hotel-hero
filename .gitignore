@@ -3,4 +3,6 @@
 *.iml
 
 /jsp/
-dependency-reduced-pom.xml
+/dependency-reduced-pom.xml
+
+bower_components

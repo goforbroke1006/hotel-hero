@@ -31,6 +31,7 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/AdminLTE-2.4.2/**").addResourceLocations("/AdminLTE-2.4.2/").setCachePeriod(CACHE_PERIOD);
         registry.addResourceHandler("/bootstrap/**").addResourceLocations("/bootstrap/").setCachePeriod(CACHE_PERIOD);
         registry.addResourceHandler("/css/**").addResourceLocations("/css/").setCachePeriod(CACHE_PERIOD);
         registry.addResourceHandler("/img/**").addResourceLocations("/img/").setCachePeriod(CACHE_PERIOD);

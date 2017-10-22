@@ -1,4 +1,4 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <!DOCTYPE html>
 <html>
@@ -28,7 +28,8 @@
     <![endif]-->
 
     <!-- Google Font -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -67,7 +68,8 @@
                                     <li><!-- start message -->
                                         <a href="#">
                                             <div class="pull-left">
-                                                <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                                <img src="../../dist/img/user2-160x160.jpg" class="img-circle"
+                                                     alt="User Image">
                                             </div>
                                             <h4>
                                                 Support Team
@@ -80,7 +82,8 @@
                                     <li>
                                         <a href="#">
                                             <div class="pull-left">
-                                                <img src="../../dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
+                                                <img src="../../dist/img/user3-128x128.jpg" class="img-circle"
+                                                     alt="User Image">
                                             </div>
                                             <h4>
                                                 AdminLTE Design Team
@@ -92,7 +95,8 @@
                                     <li>
                                         <a href="#">
                                             <div class="pull-left">
-                                                <img src="../../dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
+                                                <img src="../../dist/img/user4-128x128.jpg" class="img-circle"
+                                                     alt="User Image">
                                             </div>
                                             <h4>
                                                 Developers
@@ -104,7 +108,8 @@
                                     <li>
                                         <a href="#">
                                             <div class="pull-left">
-                                                <img src="../../dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
+                                                <img src="../../dist/img/user3-128x128.jpg" class="img-circle"
+                                                     alt="User Image">
                                             </div>
                                             <h4>
                                                 Sales Department
@@ -116,7 +121,8 @@
                                     <li>
                                         <a href="#">
                                             <div class="pull-left">
-                                                <img src="../../dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
+                                                <img src="../../dist/img/user4-128x128.jpg" class="img-circle"
+                                                     alt="User Image">
                                             </div>
                                             <h4>
                                                 Reviewers
@@ -148,7 +154,8 @@
                                     </li>
                                     <li>
                                         <a href="#">
-                                            <i class="fa fa-warning text-yellow"></i> Very long description here that may not fit into the
+                                            <i class="fa fa-warning text-yellow"></i> Very long description here that
+                                            may not fit into the
                                             page and may cause design problems
                                         </a>
                                     </li>
@@ -191,7 +198,9 @@
                                                 <small class="pull-right">20%</small>
                                             </h3>
                                             <div class="progress xs">
-                                                <div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                                <div class="progress-bar progress-bar-aqua" style="width: 20%"
+                                                     role="progressbar" aria-valuenow="20" aria-valuemin="0"
+                                                     aria-valuemax="100">
                                                     <span class="sr-only">20% Complete</span>
                                                 </div>
                                             </div>
@@ -205,7 +214,9 @@
                                                 <small class="pull-right">40%</small>
                                             </h3>
                                             <div class="progress xs">
-                                                <div class="progress-bar progress-bar-green" style="width: 40%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                                <div class="progress-bar progress-bar-green" style="width: 40%"
+                                                     role="progressbar" aria-valuenow="20" aria-valuemin="0"
+                                                     aria-valuemax="100">
                                                     <span class="sr-only">40% Complete</span>
                                                 </div>
                                             </div>
@@ -219,7 +230,9 @@
                                                 <small class="pull-right">60%</small>
                                             </h3>
                                             <div class="progress xs">
-                                                <div class="progress-bar progress-bar-red" style="width: 60%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                                <div class="progress-bar progress-bar-red" style="width: 60%"
+                                                     role="progressbar" aria-valuenow="20" aria-valuemin="0"
+                                                     aria-valuemax="100">
                                                     <span class="sr-only">60% Complete</span>
                                                 </div>
                                             </div>
@@ -233,7 +246,9 @@
                                                 <small class="pull-right">80%</small>
                                             </h3>
                                             <div class="progress xs">
-                                                <div class="progress-bar progress-bar-yellow" style="width: 80%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                                <div class="progress-bar progress-bar-yellow" style="width: 80%"
+                                                     role="progressbar" aria-valuenow="20" aria-valuemin="0"
+                                                     aria-valuemax="100">
                                                     <span class="sr-only">80% Complete</span>
                                                 </div>
                                             </div>
@@ -349,7 +364,8 @@
                         <li><a href="../layout/top-nav.html"><i class="fa fa-circle-o"></i> Top Navigation</a></li>
                         <li><a href="../layout/boxed.html"><i class="fa fa-circle-o"></i> Boxed</a></li>
                         <li><a href="../layout/fixed.html"><i class="fa fa-circle-o"></i> Fixed</a></li>
-                        <li><a href="../layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a></li>
+                        <li><a href="../layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a>
+                        </li>
                     </ul>
                 </li>
                 <li>
@@ -400,7 +416,8 @@
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li class="active"><a href="general.html"><i class="fa fa-circle-o"></i> General Elements</a></li>
+                        <li class="active"><a href="general.html"><i class="fa fa-circle-o"></i> General Elements</a>
+                        </li>
                         <li><a href="advanced.html"><i class="fa fa-circle-o"></i> Advanced Elements</a></li>
                         <li><a href="editors.html"><i class="fa fa-circle-o"></i> Editors</a></li>
                     </ul>
@@ -515,403 +532,287 @@
 
         <!-- Main content -->
         <section class="content">
-            <div class="row">
-                <!-- left column -->
-                <div class="col-md-6">
-                    <!-- general form elements -->
-                    <div class="box box-primary">
-                        <div class="box-header with-border">
-                            <h3 class="box-title">Quick Example</h3>
-                        </div>
-                        <!-- /.box-header -->
-                        <!-- form start -->
-                        <form role="form">
+            <form role="form" method="post" action="/registration-form/save">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="box box-info">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">Person</h3>
+                            </div>
+
                             <div class="box-body">
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Email address</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                                    <label for="person_lastName">Last name</label>
+                                    <input type="text" class="form-control" name="lastName"
+                                           id="person_lastName"
+                                           placeholder="Smith">
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputPassword1">Password</label>
-                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                    <label for="person_firstName">First name</label>
+                                    <input type="text" class="form-control" name="firstName"
+                                           id="person_firstName"
+                                           placeholder="John">
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputFile">File input</label>
-                                    <input type="file" id="exampleInputFile">
-
-                                    <p class="help-block">Example block-level help text here.</p>
+                                    <label for="person_nationality">Nationality</label>
+                                    <input type="text" class="form-control" name="nationality"
+                                           id="person_nationality"
+                                           placeholder="Nationality">
                                 </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox"> Check me out
-                                    </label>
-                                </div>
-                            </div>
-                            <!-- /.box-body -->
+                                <div class="form-group">
+                                    <label for="person_birthday">Birthday:</label>
 
-                            <div class="box-footer">
-                                <button type="submit" class="btn btn-primary">Submit</button>
-                            </div>
-                        </form>
-                    </div>
-                    <!-- /.box -->
-
-                    <!-- Form Element sizes -->
-                    <div class="box box-success">
-                        <div class="box-header with-border">
-                            <h3 class="box-title">Different Height</h3>
-                        </div>
-                        <div class="box-body">
-                            <input class="form-control input-lg" type="text" placeholder=".input-lg">
-                            <br>
-                            <input class="form-control" type="text" placeholder="Default input">
-                            <br>
-                            <input class="form-control input-sm" type="text" placeholder=".input-sm">
-                        </div>
-                        <!-- /.box-body -->
-                    </div>
-                    <!-- /.box -->
-
-                    <div class="box box-danger">
-                        <div class="box-header with-border">
-                            <h3 class="box-title">Different Width</h3>
-                        </div>
-                        <div class="box-body">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <input type="text" class="form-control" placeholder=".col-xs-3">
-                                </div>
-                                <div class="col-xs-4">
-                                    <input type="text" class="form-control" placeholder=".col-xs-4">
-                                </div>
-                                <div class="col-xs-5">
-                                    <input type="text" class="form-control" placeholder=".col-xs-5">
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /.box-body -->
-                    </div>
-                    <!-- /.box -->
-
-                    <!-- Input addon -->
-                    <div class="box box-info">
-                        <div class="box-header with-border">
-                            <h3 class="box-title">Input Addon</h3>
-                        </div>
-                        <div class="box-body">
-                            <div class="input-group">
-                                <span class="input-group-addon">@</span>
-                                <input type="text" class="form-control" placeholder="Username">
-                            </div>
-                            <br>
-
-                            <div class="input-group">
-                                <input type="text" class="form-control">
-                                <span class="input-group-addon">.00</span>
-                            </div>
-                            <br>
-
-                            <div class="input-group">
-                                <span class="input-group-addon">$</span>
-                                <input type="text" class="form-control">
-                                <span class="input-group-addon">.00</span>
-                            </div>
-
-                            <h4>With icons</h4>
-
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                                <input type="email" class="form-control" placeholder="Email">
-                            </div>
-                            <br>
-
-                            <div class="input-group">
-                                <input type="text" class="form-control">
-                                <span class="input-group-addon"><i class="fa fa-check"></i></span>
-                            </div>
-                            <br>
-
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-dollar"></i></span>
-                                <input type="text" class="form-control">
-                                <span class="input-group-addon"><i class="fa fa-ambulance"></i></span>
-                            </div>
-
-                            <h4>With checkbox and radio inputs</h4>
-
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="input-group">
-                        <span class="input-group-addon">
-                          <input type="checkbox">
-                        </span>
-                                        <input type="text" class="form-control">
+                                    <div class="input-group date">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </div>
+                                        <input type="text" class="form-control pull-right datepicker" name="birthday"
+                                               id="person_birthday">
                                     </div>
-                                    <!-- /input-group -->
                                 </div>
-                                <!-- /.col-lg-6 -->
-                                <div class="col-lg-6">
-                                    <div class="input-group">
-                        <span class="input-group-addon">
-                          <input type="radio">
-                        </span>
-                                        <input type="text" class="form-control">
+
+                                <div class="form-group">
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="gender" id="person_gender_male"
+                                                   value="male"
+                                                   checked>Male</label>
                                     </div>
-                                    <!-- /input-group -->
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="gender" id="person_gender_female"
+                                                   value="female">Female</label>
+                                    </div>
                                 </div>
-                                <!-- /.col-lg-6 -->
                             </div>
-                            <!-- /.row -->
-
-                            <h4>With buttons</h4>
-
-                            <p class="margin">Large: <code>.input-group.input-group-lg</code></p>
-
-                            <div class="input-group input-group-lg">
-                                <div class="input-group-btn">
-                                    <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">Action
-                                        <span class="fa fa-caret-down"></span></button>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#">Action</a></li>
-                                        <li><a href="#">Another action</a></li>
-                                        <li><a href="#">Something else here</a></li>
-                                        <li class="divider"></li>
-                                        <li><a href="#">Separated link</a></li>
-                                    </ul>
-                                </div>
-                                <!-- /btn-group -->
-                                <input type="text" class="form-control">
-                            </div>
-                            <!-- /input-group -->
-                            <p class="margin">Normal</p>
-
-                            <div class="input-group">
-                                <div class="input-group-btn">
-                                    <button type="button" class="btn btn-danger">Action</button>
-                                </div>
-                                <!-- /btn-group -->
-                                <input type="text" class="form-control">
-                            </div>
-                            <!-- /input-group -->
-                            <p class="margin">Small <code>.input-group.input-group-sm</code></p>
-
-                            <div class="input-group input-group-sm">
-                                <input type="text" class="form-control">
-                                <span class="input-group-btn">
-                      <button type="button" class="btn btn-info btn-flat">Go!</button>
-                    </span>
-                            </div>
-                            <!-- /input-group -->
                         </div>
-                        <!-- /.box-body -->
-                    </div>
-                    <!-- /.box -->
 
-                </div>
-                <!--/.col (left) -->
-                <!-- right column -->
-                <div class="col-md-6">
-                    <!-- Horizontal Form -->
-                    <div class="box box-info">
-                        <div class="box-header with-border">
-                            <h3 class="box-title">Horizontal Form</h3>
-                        </div>
-                        <!-- /.box-header -->
-                        <!-- form start -->
-                        <form class="form-horizontal">
+                        <div class="box box-info">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">Place of birthday</h3>
+                            </div>
                             <div class="box-body">
                                 <div class="form-group">
-                                    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+                                    <label for="person_lastName">Country</label>
+                                    <input type="text" class="form-control"
+                                           name="placeOfBirth.county"
+                                           id="person_placeOfBirth_county"
+                                           placeholder="United States of America">
+                                </div>
+                                <div class="form-group">
+                                    <label for="person_lastName">City</label>
+                                    <input type="text" class="form-control"
+                                           name="placeOfBirth.city"
+                                           id="person_placeOfBirth_city"
+                                           placeholder="New York">
+                                </div>
 
-                                    <div class="col-sm-10">
-                                        <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                            </div>
+                        </div>
+
+                        <div class="box box-info">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">Identity document</h3>
+                            </div>
+                            <div class="box-body">
+                                <div class="form-group">
+                                    <label for="person_identityDocument_type">Type</label>
+                                    <select class="form-control" name="identityDocument.type"
+                                            id="person_identityDocument_type">
+                                        <option selected>Passport</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="person_identityDocument_series">Series</label>
+                                    <input type="text" class="form-control"
+                                           name="identityDocument.series"
+                                           id="person_identityDocument_series"
+                                           placeholder="1234">
+                                </div>
+                                <div class="form-group">
+                                    <label for="person_lastName">Identifier</label>
+                                    <input type="text" class="form-control"
+                                           name="identityDocument.identifier"
+                                           id="person_identityDocument_identifier"
+                                           placeholder="123456">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="person_identityDocument_dateOfIssueDate">Issue date:</label>
+
+                                    <div class="input-group date">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </div>
+                                        <input type="text" class="form-control pull-left datepicker"
+                                               name="identityDocument.dateOfIssueDate"
+                                               id="person_identityDocument_dateOfIssueDate">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+                                    <label for="person_identityDocument_validityTillDate">Validity till:</label>
 
-                                    <div class="col-sm-10">
-                                        <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                                    <div class="input-group date">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </div>
+                                        <input type="text" class="form-control pull-right datepicker"
+                                               name="identityDocument.validityTillDate"
+                                               id="person_identityDocument_validityTillDate">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="box box-info">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">Right to stay confirming document</h3>
+                            </div>
+                            <div class="box-body">
+                                <div class="form-group">
+                                    <label for="person_stayConfirmingDocument_type">Type</label>
+                                    <select class="form-control"
+                                            name="stayConfirmingDocument.type"
+                                            id="person_stayConfirmingDocument_type">
+                                        <option selected>Passport</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="person_stayConfirmingDocument_series">Series</label>
+                                    <input type="text" class="form-control"
+                                           name="stayConfirmingDocument.series"
+                                           id="person_stayConfirmingDocument_series"
+                                           placeholder="123456">
+                                </div>
+                                <div class="form-group">
+                                    <label for="person_stayConfirmingDocument_identifier">Identifier</label>
+                                    <input type="text" class="form-control"
+                                           name="stayConfirmingDocument.identifier"
+                                           id="person_stayConfirmingDocument_identifier"
+                                           placeholder="123456">
+                                </div>
+                                <div class="form-group">
+                                    <label for="person_stayConfirmingDocument_dateOfIssueDate">Issue date:</label>
+
+                                    <div class="input-group date">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </div>
+                                        <input type="text" class="form-control pull-left datepicker"
+                                               name="stayConfirmingDocument.dateOfIssueDate"
+                                               id="person_stayConfirmingDocument_dateOfIssueDate">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <div class="col-sm-offset-2 col-sm-10">
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox"> Remember me
-                                            </label>
+                                    <label for="person_stayConfirmingDocument_validityTillDate">Validity till:</label>
+
+                                    <div class="input-group date">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </div>
+                                        <input type="text" class="form-control pull-right datepicker"
+                                               name="stayConfirmingDocument.validityTillDate"
+                                               id="person_stayConfirmingDocument_validityTillDate">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="box box-info">
+                            <div class="box-header with-border">
+                                <div class="box-header with-border">
+                                    <h3 class="box-title">Additional info</h3>
+                                </div>
+
+                                <div class="box-body">
+                                    <div class="form-group">
+                                        <label for="person_purpose">Purpose</label>
+                                        <select class="form-control" name="purpose"
+                                                id="person_purpose">
+                                            <option>Business trip</option>
+                                            <option selected>Tourism</option>
+                                            <option>Business</option>
+                                            <option>Learning</option>
+                                            <option>Job</option>
+                                            <option>Private</option>
+                                            <option>Transit</option>
+                                            <option>Humanitarian</option>
+                                            <option>Another</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="person_arrivalDate">Arrival date:</label>
+
+                                        <div class="input-group date">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </div>
+                                            <input type="text" class="form-control pull-left datepicker"
+                                                   name="arrivalDate"
+                                                   id="person_arrivalDate">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="person_durationOfStay">Duration of stay:</label>
+
+                                        <div class="input-group date">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </div>
+                                            <input type="text" class="form-control pull-left datepicker"
+                                                   name="durationOfStay"
+                                                   id="person_durationOfStay">
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <!-- /.box-body -->
-                            <div class="box-footer">
-                                <button type="submit" class="btn btn-default">Cancel</button>
-                                <button type="submit" class="btn btn-info pull-right">Sign in</button>
+
+                            <div class="box box-info">
+                                <div class="box-header with-border">
+                                    <h3 class="box-title">Migration card</h3>
+                                </div>
+
+                                <div class="box-body">
+                                    <div class="form-group">
+                                        <label for="person_migrationCard_series">Series</label>
+                                        <input type="text" class="form-control"
+                                               name="migrationCard.series"
+                                               id="person_migrationCard_series"
+                                               placeholder="123456">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="person_migrationCard_number">Number</label>
+                                        <input type="text" class="form-control"
+                                               name="migrationCard.number"
+                                               id="person_migrationCard_number"
+                                               placeholder="123456">
+                                    </div>
+                                </div>
                             </div>
-                            <!-- /.box-footer -->
-                        </form>
-                    </div>
-                    <!-- /.box -->
-                    <!-- general form elements disabled -->
-                    <div class="box box-warning">
-                        <div class="box-header with-border">
-                            <h3 class="box-title">General Elements</h3>
                         </div>
-                        <!-- /.box-header -->
-                        <div class="box-body">
-                            <form role="form">
-                                <!-- text input -->
-                                <div class="form-group">
-                                    <label>Text</label>
-                                    <input type="text" class="form-control" placeholder="Enter ...">
-                                </div>
-                                <div class="form-group">
-                                    <label>Text Disabled</label>
-                                    <input type="text" class="form-control" placeholder="Enter ..." disabled>
-                                </div>
-
-                                <!-- textarea -->
-                                <div class="form-group">
-                                    <label>Textarea</label>
-                                    <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <label>Textarea Disabled</label>
-                                    <textarea class="form-control" rows="3" placeholder="Enter ..." disabled></textarea>
-                                </div>
-
-                                <!-- input states -->
-                                <div class="form-group has-success">
-                                    <label class="control-label" for="inputSuccess"><i class="fa fa-check"></i> Input with success</label>
-                                    <input type="text" class="form-control" id="inputSuccess" placeholder="Enter ...">
-                                    <span class="help-block">Help block with success</span>
-                                </div>
-                                <div class="form-group has-warning">
-                                    <label class="control-label" for="inputWarning"><i class="fa fa-bell-o"></i> Input with
-                                        warning</label>
-                                    <input type="text" class="form-control" id="inputWarning" placeholder="Enter ...">
-                                    <span class="help-block">Help block with warning</span>
-                                </div>
-                                <div class="form-group has-error">
-                                    <label class="control-label" for="inputError"><i class="fa fa-times-circle-o"></i> Input with
-                                        error</label>
-                                    <input type="text" class="form-control" id="inputError" placeholder="Enter ...">
-                                    <span class="help-block">Help block with error</span>
-                                </div>
-
-                                <!-- checkbox -->
-                                <div class="form-group">
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox">
-                                            Checkbox 1
-                                        </label>
-                                    </div>
-
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox">
-                                            Checkbox 2
-                                        </label>
-                                    </div>
-
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox" disabled>
-                                            Checkbox disabled
-                                        </label>
-                                    </div>
-                                </div>
-
-                                <!-- radio -->
-                                <div class="form-group">
-                                    <div class="radio">
-                                        <label>
-                                            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-                                            Option one is this and that&mdash;be sure to include why it's great
-                                        </label>
-                                    </div>
-                                    <div class="radio">
-                                        <label>
-                                            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-                                            Option two can be something else and selecting it will deselect option one
-                                        </label>
-                                    </div>
-                                    <div class="radio">
-                                        <label>
-                                            <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3" disabled>
-                                            Option three is disabled
-                                        </label>
-                                    </div>
-                                </div>
-
-                                <!-- select -->
-                                <div class="form-group">
-                                    <label>Select</label>
-                                    <select class="form-control">
-                                        <option>option 1</option>
-                                        <option>option 2</option>
-                                        <option>option 3</option>
-                                        <option>option 4</option>
-                                        <option>option 5</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label>Select Disabled</label>
-                                    <select class="form-control" disabled>
-                                        <option>option 1</option>
-                                        <option>option 2</option>
-                                        <option>option 3</option>
-                                        <option>option 4</option>
-                                        <option>option 5</option>
-                                    </select>
-                                </div>
-
-                                <!-- Select multiple-->
-                                <div class="form-group">
-                                    <label>Select Multiple</label>
-                                    <select multiple class="form-control">
-                                        <option>option 1</option>
-                                        <option>option 2</option>
-                                        <option>option 3</option>
-                                        <option>option 4</option>
-                                        <option>option 5</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label>Select Multiple Disabled</label>
-                                    <select multiple class="form-control" disabled>
-                                        <option>option 1</option>
-                                        <option>option 2</option>
-                                        <option>option 3</option>
-                                        <option>option 4</option>
-                                        <option>option 5</option>
-                                    </select>
-                                </div>
-
-                            </form>
-                        </div>
-                        <!-- /.box-body -->
                     </div>
-                    <!-- /.box -->
                 </div>
-                <!--/.col (right) -->
-            </div>
-            <!-- /.row -->
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="box-footer">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
         </section>
-        <!-- /.content -->
     </div>
-    <!-- /.content-wrapper -->
+
     <footer class="main-footer">
         <div class="pull-right hidden-xs">
             <b>Version</b> 2.4.0
         </div>
-        <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
-        reserved.
+        <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong>
+        All rights reserved.
     </footer>
 
-    <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">
         <!-- Create the tabs -->
         <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
@@ -1100,22 +1001,25 @@
             <!-- /.tab-pane -->
         </div>
     </aside>
-    <!-- /.control-sidebar -->
-    <!-- Add the sidebar's background. This div must be placed
-         immediately after the control sidebar -->
+
     <div class="control-sidebar-bg"></div>
 </div>
-<!-- ./wrapper -->
 
-<!-- jQuery 3 -->
 <script src="/AdminLTE-2.4.2/bower_components/jquery/dist/jquery.min.js"></script>
-<!-- Bootstrap 3.3.7 -->
 <script src="/AdminLTE-2.4.2/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<!-- FastClick -->
 <script src="/AdminLTE-2.4.2/bower_components/fastclick/lib/fastclick.js"></script>
-<!-- AdminLTE App -->
 <script src="/AdminLTE-2.4.2/dist/js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="/AdminLTE-2.4.2/dist/js/demo.js"></script>
+<script src="/AdminLTE-2.4.2/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+
+<script>
+    $(function () {
+        $('.datepicker').datepicker({
+            format: 'yyyy-mm-dd',
+//            format: 'U',
+            autoclose: true
+        });
+    });
+</script>
+
 </body>
 </html>

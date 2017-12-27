@@ -48,8 +48,8 @@
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                <li><a href="#">Миграционный учет</a></li>
-                <li class="active">Форма регистрации</li>
+                <li><a href="#">Forms</a></li>
+                <li class="active">General Elements</li>
             </ol>
         </section>
 
@@ -71,7 +71,7 @@
                                            placeholder="Smith">
                                 </div>
                                 <div class="form-group">
-                                    <label for="person_firstName">Имя (отчество)</label>
+                                    <label for="person_firstName">Имя (и отчество если есть)</label>
                                     <input type="text" class="form-control" name="firstName"
                                            id="person_firstName"
                                            placeholder="John">

@@ -7,15 +7,15 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/registration-form")
+@RequestMapping("/registration")
 public class RegistrationFormController {
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(value = "/create", method = RequestMethod.GET)
     public String index() {
         return "reg-form/index";
     }
 
-    @RequestMapping(value = "/save", method = RequestMethod.POST)
+    @RequestMapping(value = "/create", method = RequestMethod.POST)
     public String saveForm(
             @ModelAttribute("person") Person person,
             BindingResult bindingResult
@@ -26,4 +26,12 @@ public class RegistrationFormController {
         return "reg-form/index";
     }
 
+    @RequestMapping(value = "/settings", method = RequestMethod.GET)
+    public String settings() {
+        return "reg-form/settings";
+    }
+    @RequestMapping(value = "/settings", method = RequestMethod.POST)
+    public String settingsSave() {
+        return "reg-form/settings";
+    }
 }

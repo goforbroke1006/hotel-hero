@@ -29,12 +29,36 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
         return resolver;
     }
 
+    private final String[] resDirs = {
+            "AdminLTE-2.4.2",
+//            "bootstrap",
+//            "bootstrap-datepicker",
+//            "bootstrap-daterangepicker",
+//            "bootstrap-wysihtml5",
+//            "Font-Awesome",
+//            "ionicons",
+//            "jquery",
+//            "jquery-ui",
+//            "jvectormap",
+            "css",
+            "img",
+            "js",
+    };
+
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/AdminLTE-2.4.2/**").addResourceLocations("/AdminLTE-2.4.2/").setCachePeriod(CACHE_PERIOD);
-        registry.addResourceHandler("/bootstrap/**").addResourceLocations("/bootstrap/").setCachePeriod(CACHE_PERIOD);
-        registry.addResourceHandler("/css/**").addResourceLocations("/css/").setCachePeriod(CACHE_PERIOD);
-        registry.addResourceHandler("/img/**").addResourceLocations("/img/").setCachePeriod(CACHE_PERIOD);
-        registry.addResourceHandler("/js/**").addResourceLocations("/js/").setCachePeriod(CACHE_PERIOD);
+        for (String resDir : resDirs)
+            registry.addResourceHandler("/" + resDir + "/**")
+                    .addResourceLocations("/" + resDir + "/")
+                    .setCachePeriod(CACHE_PERIOD);
+//        registry.addResourceHandler("/AdminLTE-2.4.2/**").addResourceLocations("/AdminLTE-2.4.2/").setCachePeriod(CACHE_PERIOD);
+//        registry.addResourceHandler("/bootstrap/**").addResourceLocations("/bootstrap/").setCachePeriod(CACHE_PERIOD);
+//        registry.addResourceHandler("/bootstrap-datepicker/**").addResourceLocations("/bootstrap-datepicker/").setCachePeriod(CACHE_PERIOD);
+//        registry.addResourceHandler("/Font-Awesome/**").addResourceLocations("/Font-Awesome/").setCachePeriod(CACHE_PERIOD);
+//        registry.addResourceHandler("/ionicons/**").addResourceLocations("/ionicons/").setCachePeriod(CACHE_PERIOD);
+//        registry.addResourceHandler("/jvectormap/**").addResourceLocations("/jvectormap/").setCachePeriod(CACHE_PERIOD);
+//        registry.addResourceHandler("/css/**").addResourceLocations("/css/").setCachePeriod(CACHE_PERIOD);
+//        registry.addResourceHandler("/img/**").addResourceLocations("/img/").setCachePeriod(CACHE_PERIOD);
+//        registry.addResourceHandler("/js/**").addResourceLocations("/js/").setCachePeriod(CACHE_PERIOD);
     }
 }

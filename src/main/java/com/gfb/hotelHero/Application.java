@@ -1,7 +1,7 @@
 package com.gfb.hotelHero;
 
 import com.gfb.hotelHero.ddengi.DdengiService;
-import com.gfb.hotelHero.ddengi.GetRecordList;
+//import com.gfb.hotelHero.ddengi.GetRecordList;
 
 import javax.xml.bind.JAXBElement;
 import javax.xml.namespace.QName;
@@ -20,11 +20,11 @@ public class Application {
 //        Map<String, Object> params = new HashMap<>();
 //        params.put("test", true);
 
-        GetRecordList req = new GetRecordList();
-        JAXBElement jbEl = new JAXBElement(new QName("urn:ddengi","getRecordList"), GetRecordList.class, req);
+//        GetRecordList req = new GetRecordList();
+//        JAXBElement jbEl = new JAXBElement(new QName("urn:ddengi","getRecordList"), GetRecordList.class, req);
 //        ddengiService.get
 
-        Object res = ddengiService.getSoapPort().getRecordList("demo_api", "demo@example.com", "demo", req, ids);
+//        Object res = ddengiService.getSoapPort().getRecordList("demo_api", "demo@example.com", "demo", req, ids);
 
         return;
 //        new WebServer(8080).start();

@@ -113,161 +113,6 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- Standalone Jetty-based server -->
-        <!--<dependency>
-            <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-webapp</artifactId>
-            <version>${jetty.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-jsp</artifactId>
-            <version>${jetty.version}</version>
-        </dependency>
-        &lt;!&ndash; https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-util &ndash;&gt;
-        <dependency>
-            <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-util</artifactId>
-            <version>${jetty.version}</version>
-        </dependency>-->
-
-        <!--<dependency>-->
-        <!--<groupId>javax.servlet</groupId>-->
-        <!--<artifactId>jstl</artifactId>-->
-        <!--<version>1.2</version>-->
-        <!--<scope>provided</scope>-->
-        <!--</dependency>-->
-
-        <!--<dependency>-->
-        <!--<groupId>javax.servlet</groupId>-->
-        <!--<artifactId>servlet-api</artifactId>-->
-        <!--<version>2.5</version>-->
-        <!--<scope>provided</scope>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-        <!--<groupId>javax.servlet.jsp</groupId>-->
-        <!--<artifactId>jsp-api</artifactId>-->
-        <!--<version>2.1</version>-->
-        <!--<scope>compile</scope>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-        <!--<groupId>javax.servlet</groupId>-->
-        <!--<artifactId>jstl</artifactId>-->
-        <!--<version>1.2</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-        <!--<groupId>org.apache.tomcat</groupId>-->
-        <!--<artifactId>jasper-el</artifactId>-->
-        <!--<version>6.0.26</version>-->
-        <!--</dependency>-->
-       <!-- <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>servlet-api</artifactId>
-            <version>2.5</version>
-            <scope>provided</scope>
-        </dependency>-->
-
-
-        <!--<dependency>
-            <groupId>taglibs</groupId>
-            <artifactId>standard</artifactId>
-            <version>1.1.2</version>
-        </dependency>
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>jstl</artifactId>
-            <version>1.1.0</version>
-        </dependency>-->
-
-        <!--<dependency>
-            <groupId>jstl</groupId>
-            <artifactId>jstl</artifactId>
-            <version>1.2</version>
-        </dependency>-->
-
-
-
-        <!--<dependency>-->
-            <!--<groupId>javax.servlet.jsp</groupId>-->
-            <!--<artifactId>jsp-api</artifactId>-->
-            <!--<version>2.1</version>-->
-            <!--<scope>provided</scope>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>javax.servlet</groupId>-->
-            <!--<artifactId>jstl</artifactId>-->
-            <!--<version>1.2</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>org.apache.tomcat</groupId>-->
-            <!--<artifactId>jasper-el</artifactId>-->
-            <!--<version>6.0.26</version>-->
-        <!--</dependency>-->
-
-        <!--<dependency>-->
-            <!--<groupId>jstl</groupId>-->
-            <!--<artifactId>jstl</artifactId>-->
-            <!--<version>1.2</version>-->
-        <!--</dependency>-->
-
-
-        <!--<dependency>-->
-        <!--<groupId>org.eclipse.jetty</groupId>-->
-        <!--<artifactId>jetty-jsp</artifactId>-->
-        <!--<version>${jetty.version}</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-        <!--<groupId>org.eclipse.jetty</groupId>-->
-        <!--<artifactId>apache-jstl</artifactId>-->
-        <!--<version>${jetty.version}</version>-->
-        <!--<type>jar</type>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-        <!--<groupId>org.eclipse.jetty</groupId>-->
-        <!--<artifactId>apache-jsp</artifactId>-->
-        <!--<version>${jetty.version}</version>-->
-        <!--&lt;!&ndash;<type>jar</type>&ndash;&gt;-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-        <!--<groupId>org.eclipse.jetty</groupId>-->
-        <!--<artifactId>apache-jstl</artifactId>-->
-        <!--<version>${jetty.version}</version>-->
-        <!--&lt;!&ndash;<type>pom</type>&ndash;&gt;-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-        <!--<groupId>org.eclipse.jetty</groupId>-->
-        <!--<artifactId>jetty-jsp</artifactId>-->
-        <!--<version>${jetty.version}</version>-->
-        <!--</dependency>-->
-
-        <!--<dependency>-->
-        <!--<groupId>org.eclipse.jetty.toolchain</groupId>-->
-        <!--<artifactId>jetty-jsp-jdt</artifactId>-->
-        <!--<version>2.3.3</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-        <!--<groupId>javax.servlet</groupId>-->
-        <!--<artifactId>jsp-api</artifactId>-->
-        <!--<version>2.0</version>-->
-        <!--<scope>provided</scope>-->
-        <!--</dependency>-->
-
-        <!--<dependency>-->
-        <!--<groupId>jstl</groupId>-->
-        <!--<artifactId>jstl</artifactId>-->
-        <!--<version>1.2</version>-->
-        <!--<type>jar</type>-->
-        <!--</dependency>-->
-
-
-        <!-- Servlet API-->
-        <!--<dependency>-->
-            <!--<groupId>javax.servlet</groupId>-->
-            <!--<artifactId>javax.servlet-api</artifactId>-->
-            <!--<version>3.1.0</version>-->
-            <!--<scope>compile</scope>-->
-        <!--</dependency>-->
-
         <!-- SOAP client -->
         <dependency>
             <groupId>com.sun.xml.ws</groupId>
@@ -380,31 +225,6 @@
                 </executions>
             </plugin>
 
-            <!--<plugin>
-                <groupId>org.mortbay.jetty</groupId>
-                <artifactId>jetty-maven-plugin</artifactId>
-                <configuration>
-                    <webAppConfig>
-                        <contextPath>/${artifactId}</contextPath>
-                    </webAppConfig>
-                    <scanIntervalSeconds>5</scanIntervalSeconds>
-                    <stopPort/>
-                    <stopKey/>
-                </configuration>
-                &lt;!&ndash;<dependencies>&ndash;&gt;
-                    &lt;!&ndash;<dependency>&ndash;&gt;
-                        &lt;!&ndash;<groupId>com.sun.faces</groupId>&ndash;&gt;
-                        &lt;!&ndash;<artifactId>jsf-api</artifactId>&ndash;&gt;
-                        &lt;!&ndash;<version>2.0.8</version>&ndash;&gt;
-                    &lt;!&ndash;</dependency>&ndash;&gt;
-                    &lt;!&ndash;<dependency>&ndash;&gt;
-                        &lt;!&ndash;<groupId>com.sun.faces</groupId>&ndash;&gt;
-                        &lt;!&ndash;<artifactId>jsf-impl</artifactId>&ndash;&gt;
-                        &lt;!&ndash;<version>2.0.8</version>&ndash;&gt;
-                    &lt;!&ndash;</dependency>&ndash;&gt;
-                &lt;!&ndash;</dependencies>&ndash;&gt;
-            </plugin>-->
-
             <plugin>
                 <groupId>org.mortbay.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
@@ -436,23 +256,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <packageName>com.gfb.hotelHero.dd</packageName>
-                </configuration>
-            </plugin>-->
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>jaxws-maven-plugin</artifactId>
-                <!--<version>2.2</version>-->
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>wsimport</goal>
-                        </goals>
                         <configuration>
-                            <!-- The name of your generated source package -->
                             <packageName>com.gfb.hotelHero.ddengi</packageName>
                             <sourceDestDir>src/main/java</sourceDestDir>
                             <wsdlFiles>
@@ -464,8 +268,6 @@
                         </configuration>
                     </execution>
                 </executions>
-
-                <!-- if you want to use a specific version of JAX-WS, you can do so like this -->
                 <dependencies>
                     <dependency>
                         <groupId>com.sun.xml.ws</groupId>
@@ -473,7 +275,7 @@
                         <version>2.3.0</version>
                     </dependency>
                 </dependencies>
-            </plugin>
+            </plugin>-->
         </plugins>
 
     </build>

@@ -10,7 +10,8 @@ public class IndexController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index(Model m) {
-        m.addAttribute("username", System.getProperty("user.name"));
+//        m.addAttribute("username", System.getProperty("user.name"));
+        m.addAttribute("username", "GFB");
         return "index/index";
     }
 

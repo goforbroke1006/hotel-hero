@@ -2,7 +2,6 @@ package com.gfb.hotelHero.controller;
 
 import com.gfb.hotelHero.domain.Person;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 

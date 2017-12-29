@@ -15,8 +15,8 @@ import org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver;
 import java.time.LocalDate;
 import java.util.List;
 
-@Configuration
-@EnableWebMvc
+//@Configuration
+//@EnableWebMvc
 public class WebMvcConfig extends WebMvcConfigurerAdapter {
     public static final int CACHE_PERIOD = 31556926;
 

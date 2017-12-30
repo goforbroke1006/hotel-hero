@@ -1,46 +1,56 @@
 package com.gfb.hotelHero.ddengi;
 
 import javax.xml.bind.annotation.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-        "text"
+        "report",
+        "showDuty",
+        "period",
+        "how",
+        "what",
+        "currency",
+        "place",
+        "tag",
 })
 @XmlRootElement(name = "GetRecordListParams")
 public class GetRecordListParams {
-    protected List<String> text;
-
     @XmlElement(name = "is_report")
     protected Boolean report;
 
-    @XmlAttribute(name = "is_show_duty")
+    @XmlElement(name = "is_show_duty")
     protected Boolean showDuty;
 
-    @XmlAttribute(name = "r_period")
+    @XmlElement(name = "r_period")
     protected Integer period;
 
-    @XmlAttribute(name = "r_how")
+    @XmlElement(name = "r_how")
     protected Integer how;
 
-    @XmlAttribute(name = "r_what")
+    @XmlElement(name = "r_what")
     protected Integer what;
 
-    @XmlAttribute(name = "r_currency")
+    @XmlElement(name = "r_currency")
     protected Integer currency;
 
-    @XmlAttribute(name = "r_is_place")
+    @XmlElement(name = "r_is_place")
     protected Integer place;
 
-    @XmlAttribute(name = "r_is_tag")
+    @XmlElement(name = "r_is_tag")
     protected Integer tag;
 
-    public List<String> getText() {
-        if (text == null) {
-            text = new ArrayList<String>();
-        }
-        return this.text;
+    public GetRecordListParams() {
+    }
+
+    public GetRecordListParams(Boolean report, Boolean showDuty, Integer period, Integer how, Integer what, Integer currency, Integer place, Integer tag) {
+        this.report = report;
+        this.showDuty = showDuty;
+        this.period = period;
+        this.how = how;
+        this.what = what;
+        this.currency = currency;
+        this.place = place;
+        this.tag = tag;
     }
 
     public Boolean getReport() {

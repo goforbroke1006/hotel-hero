@@ -6,7 +6,9 @@ import com.gfb.hotelHero.ddengi.GetRecordListParams;
 import com.gfb.hotelHero.ddengi.model.GetRecordListResponse;
 import com.sun.xml.messaging.saaj.util.ByteInputStream;
 import com.sun.xml.messaging.saaj.util.JAXMStreamSource;
+import org.w3c.dom.Document;
 
+import javax.xml.bind.JAXB;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Unmarshaller;
 import javax.xml.namespace.QName;
@@ -143,7 +145,10 @@ public class Application {
 
         JAXBContext jc = JAXBContext.newInstance(GetRecordListResponse.class);
         Unmarshaller um = jc.createUnmarshaller();
-        GetRecordListResponse output = (GetRecordListResponse) um.unmarshal(reply.getSOAPBody().extractContentAsDocument());
+//        GetRecordListResponse output = (GetRecordListResponse) um.unmarshal(reply.getSOAPBody().extractContentAsDocument());
+
+        DOMSource source = new DOMSource(reply.getSOAPBody().getFirstChild());
+        GetRecordListResponse output = JAXB.unmarshal(source, GetRecordListResponse.class);
 
         return;
 

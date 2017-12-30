@@ -4,23 +4,6 @@ import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
-//@XmlRootElement(name = "params", namespace = "urn:ddengi")
-//@XmlAccessorType(value = XmlAccessType.FIELD)
-//@XmlType(name="anyType")
-//@XmlAccessorType(XmlAccessType.FIELD)
-//@XmlRootElement(name = "params")
-//@XmlAccessorType(XmlAccessType.PROPERTY)
-//@XmlType(name = "params", propOrder = {
-//        "report",
-//        "showDuty",
-//        "period",
-//        "how",
-//        "what",
-//        "currency",
-//        "place",
-//        "tag",
-//})
-
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
         "text"
@@ -29,7 +12,7 @@ import java.util.List;
 public class GetRecordListParams {
     protected List<String> text;
 
-    @XmlAttribute(name = "is_report")
+    @XmlElement(name = "is_report")
     protected Boolean report;
 
     @XmlAttribute(name = "is_show_duty")

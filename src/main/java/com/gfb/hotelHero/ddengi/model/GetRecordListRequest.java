@@ -1,46 +1,26 @@
 package com.gfb.hotelHero.ddengi.model;
 
 import javax.xml.bind.annotation.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
-        "params",
-})
+//@XmlAccessorType(XmlAccessType.FIELD)
+//@XmlType(name = "", propOrder = {
+//        "params",
+//})
 @XmlRootElement(name = "getRecordList")
-@XmlSeeAlso({Item.class})
-public class GetRecordListRequest extends BaseRequest {
-    @XmlElementWrapper(name = "params")
-    @XmlElement(name = "item")
-    protected List<Item> params = new ArrayList<>();
+@XmlSeeAlso({GetRecordListRequestParams.class})
+public class GetRecordListRequest /*extends BaseRequest*/ {
 
-    public List<Item> getParams() {
+//    @XmlElementWrapper(name = "params")
+//    @XmlElement(name = "item")
+    protected GetRecordListRequestParams params = new GetRecordListRequestParams();
+
+    public GetRecordListRequestParams getParams() {
         return params;
     }
 
-    public GetRecordListRequest setParams(List<Item> params) {
+    public GetRecordListRequest setParams(GetRecordListRequestParams params) {
         this.params = params;
         return this;
     }
 
-    public GetRecordListRequest addParam(Item param) {
-        this.params.add(param);
-        return this;
-    }
-
-//    @XmlElementWrapper(name = "params")
-//    @XmlElement(name = "item")
-//    protected Map<String, Object> params = new HashMap<>();
-//
-//    public Map<String, Object> getParams() {
-//        return params;
-//    }
-//
-//    public GetRecordListRequest setParams(Map<String, Object> params) {
-//        this.params = params;
-//        return this;
-//    }
 }

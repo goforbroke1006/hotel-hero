@@ -55,7 +55,7 @@ public class DrebeDengiClient {
         System.setProperty("com.sun.xml.ws.transport.http.HttpAdapter.dump", "true");
         System.setProperty("com.sun.xml.internal.ws.transport.http.HttpAdapter.dump", "true");
 
-        request.setCredentials("demo_api","demo@example.com","demo");
+//        request.setCredentials("demo_api","demo@example.com","demo");
 
         DdengiService service = new DdengiService(new URL("http://www.drebedengi.ru/soap/?wsdl"));
 

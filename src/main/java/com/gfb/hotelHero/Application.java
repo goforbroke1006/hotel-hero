@@ -50,20 +50,38 @@ public class Application {
     }*/
 
     public static void main(String[] args) throws Exception {
-        JAXBContext context = JAXBContext.newInstance(ArrayList.class);
+//        JAXBContext context = JAXBContext.newInstance(ArrayList.class);
 
         GetRecordListRequest request1 = new GetRecordListRequest();
-//        request1.setCredentials("demo_api", "demo@example.com", "demo");
-//        request1
-//                .addParam(new Item("is_report", false))
-//                .addParam(new Item("is_show_duty", true))
-//                .addParam(new Item("r_period", 8))
-//                .addParam(new Item("r_how", 1))
-//                .addParam(new Item("r_what", 6))
-//                .addParam(new Item("r_currency", 0))
-//                .addParam(new Item("r_is_place", 0))
-//                .addParam(new Item("r_is_tag", 0))
-//        ;
+        /*request1.setParams(new Item[]{
+                new Item("is_report", false),
+                new Item("is_show_duty", true),
+                new Item("r_period", 8),
+                new Item("r_how", 1),
+                new Item("r_what", 6),
+                new Item("r_currency", 0),
+                new Item("r_is_place", 0),
+                new Item("r_is_tag", 0),
+        });*/
+        /*request1.getParams().put("is_report", false);
+        request1.getParams().put("is_show_duty", true);
+        request1.getParams().put("r_period", 8);
+        request1.getParams().put("r_how", 1);
+        request1.getParams().put("r_what", 6);
+        request1.getParams().put("r_currency", 0);
+        request1.getParams().put("r_is_place", 0);
+        request1.getParams().put("r_is_tag", 0);*/
+
+        request1
+                .addParam(new Item("is_report", false))
+                .addParam(new Item("is_show_duty", true))
+                .addParam(new Item("r_period", 8))
+                .addParam(new Item("r_how", 1))
+                .addParam(new Item("r_what", 6))
+                .addParam(new Item("r_currency", 0))
+                .addParam(new Item("r_is_place", 0))
+                .addParam(new Item("r_is_tag", 0))
+        ;
 
         DrebeDengiClient client = new DrebeDengiClient();
         GetRecordListResponse recordList = client.getRecordList(request1);

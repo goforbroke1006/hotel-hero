@@ -2,14 +2,19 @@ package com.gfb.hotelHero;
 
 //import com.gfb.hotelHero.ddengi.GetRecordList;
 
+import com.gfb.hotelHero.ddengi.DrebeDengiClient;
 import com.gfb.hotelHero.ddengi.GetRecordListParams;
+import com.gfb.hotelHero.ddengi.model.GetRecordListRequest;
 import com.gfb.hotelHero.ddengi.model.GetRecordListResponse;
+import com.gfb.hotelHero.ddengi.model.Item;
+import com.sun.xml.messaging.saaj.soap.SOAPDocumentImpl;
 import com.sun.xml.messaging.saaj.util.ByteInputStream;
 import com.sun.xml.messaging.saaj.util.JAXMStreamSource;
 import org.w3c.dom.Document;
 
 import javax.xml.bind.JAXB;
 import javax.xml.bind.JAXBContext;
+import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 import javax.xml.namespace.QName;
 import javax.xml.soap.*;
@@ -45,6 +50,25 @@ public class Application {
     }*/
 
     public static void main(String[] args) throws Exception {
+        GetRecordListRequest request1 = new GetRecordListRequest();
+        request1.setCredentials("demo_api", "demo@example.com", "demo");
+        request1
+                .addParam(new Item("is_report", false))
+                .addParam(new Item("is_show_duty", true))
+                .addParam(new Item("r_period", 8))
+                .addParam(new Item("r_how", 1))
+                .addParam(new Item("r_what", 6))
+                .addParam(new Item("r_currency", 0))
+                .addParam(new Item("r_is_place", 0))
+                .addParam(new Item("r_is_tag", 0))
+        ;
+
+        DrebeDengiClient client = new DrebeDengiClient();
+        GetRecordListResponse recordList = client.getRecordList(null);
+    }
+
+
+    public static void main2(String[] args) throws Exception {
 
 //        new Application().testDdengi();
 
@@ -75,47 +99,68 @@ public class Application {
         SOAPHeader header = env.getHeader();
         SOAPBody body = env.getBody();
 
-        SOAPElement operation = body.addChildElement("getRecordList", "ns1", "urn:ddengi");
-        operation.addChildElement("apiId").addTextNode("demo_api");
-        operation.addChildElement("login").addTextNode("demo@example.com");
-        operation.addChildElement("pass").addTextNode("demo");
+        JAXBContext jaxbContext = JAXBContext.newInstance(GetRecordListRequest.class);
+        Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
 
-        SOAPElement params = operation.addChildElement("params")
-                .addAttribute(new QName("xsi:type"), "ns2:Map");
+//        GetRecordListRequest request1 = new GetRecordListRequest();
+//        request1.setCredentials("demo_api", "demo@example.com", "demo");
+//        request1
+//                .addParam(new Item("is_report", false))
+//                .addParam(new Item("is_show_duty", true))
+//                .addParam(new Item("r_period", 8))
+//                .addParam(new Item("r_how", 1))
+//                .addParam(new Item("r_what", 6))
+//                .addParam(new Item("r_currency", 0))
+//                .addParam(new Item("r_is_place", 0))
+//                .addParam(new Item("r_is_tag", 0))
+//        ;
+//        // output pretty printed
+//        jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+//        StringWriter sw1 = new StringWriter();
+//        jaxbMarshaller.marshal(request1, sw1);
+//        body.setValue(sw1.toString());
 
-        SOAPElement i1 = params.addChildElement("item");
-        i1.addChildElement("key").addTextNode("is_report");
-        i1.addChildElement("value").addTextNode("false")
-                .addAttribute(new QName("xsi:type"), "xsd:boolean");
-
-        SOAPElement i2 = params.addChildElement("item");
-        i2.addChildElement("key").addTextNode("is_show_duty");
-        i2.addChildElement("value").addTextNode("true")
-                .addAttribute(new QName("xsi:type"), "xsd:boolean");
-
-        SOAPElement i3 = params.addChildElement("item");
-        i3.addChildElement("key").addTextNode("r_period");
-        i3.addChildElement("value").addTextNode("8");
-
-        SOAPElement i4 = params.addChildElement("item");
-        i4.addChildElement("key").addTextNode("r_how");
-        i4.addChildElement("value").addTextNode("1");
-
-        SOAPElement i5 = params.addChildElement("item");
-        i5.addChildElement("key").addTextNode("r_what");
-        i5.addChildElement("value").addTextNode("6");
-
-        SOAPElement i6 = params.addChildElement("item");
-        i6.addChildElement("key").addTextNode("r_currency");
-        i6.addChildElement("value").addTextNode("0");
-
-        SOAPElement i7 = params.addChildElement("item");
-        i7.addChildElement("key").addTextNode("r_is_place");
-        i7.addChildElement("value").addTextNode("0");
-
-        SOAPElement i8 = params.addChildElement("item");
-        i8.addChildElement("key").addTextNode("r_is_tag");
-        i8.addChildElement("value").addTextNode("0");
+//        SOAPElement operation = body.addChildElement("getRecordList", "ns1", "urn:ddengi");
+//        operation.addChildElement("apiId").addTextNode("demo_api");
+//        operation.addChildElement("login").addTextNode("demo@example.com");
+//        operation.addChildElement("pass").addTextNode("demo");
+//
+//        SOAPElement params = operation.addChildElement("params")
+//                .addAttribute(new QName("xsi:type"), "ns2:Map");
+//
+//        SOAPElement i1 = params.addChildElement("item");
+//        i1.addChildElement("key").addTextNode("is_report");
+//        i1.addChildElement("value").addTextNode("false")
+//                .addAttribute(new QName("xsi:type"), "xsd:boolean");
+//
+//        SOAPElement i2 = params.addChildElement("item");
+//        i2.addChildElement("key").addTextNode("is_show_duty");
+//        i2.addChildElement("value").addTextNode("true")
+//                .addAttribute(new QName("xsi:type"), "xsd:boolean");
+//
+//        SOAPElement i3 = params.addChildElement("item");
+//        i3.addChildElement("key").addTextNode("r_period");
+//        i3.addChildElement("value").addTextNode("8");
+//
+//        SOAPElement i4 = params.addChildElement("item");
+//        i4.addChildElement("key").addTextNode("r_how");
+//        i4.addChildElement("value").addTextNode("1");
+//
+//        SOAPElement i5 = params.addChildElement("item");
+//        i5.addChildElement("key").addTextNode("r_what");
+//        i5.addChildElement("value").addTextNode("6");
+//
+//        SOAPElement i6 = params.addChildElement("item");
+//        i6.addChildElement("key").addTextNode("r_currency");
+//        i6.addChildElement("value").addTextNode("0");
+//
+//        SOAPElement i7 = params.addChildElement("item");
+//        i7.addChildElement("key").addTextNode("r_is_place");
+//        i7.addChildElement("value").addTextNode("0");
+//
+//        SOAPElement i8 = params.addChildElement("item");
+//        i8.addChildElement("key").addTextNode("r_is_tag");
+//        i8.addChildElement("value").addTextNode("0");
 
 //        request.getMimeHeaders().addHeader("Content-Type", "text/xml");
 //        request.getSOAPHeader().addHeaderElement() addHeader("Content-Type", "text/xml");

@@ -15,6 +15,14 @@ public class Item {
     @XmlElement(name = "value")
     protected Object value;
 
+    public Item() {
+    }
+
+    public Item(String key, Object value) {
+        this.key = key;
+        this.value = value;
+    }
+
     public String getKey() {
         return key;
     }

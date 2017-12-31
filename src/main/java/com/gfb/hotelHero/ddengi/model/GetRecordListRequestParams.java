@@ -12,7 +12,7 @@ import java.util.*;
 //@XmlSeeAlso({Item.class})
 public class GetRecordListRequestParams {
 
-    @XmlAttribute(name = "xsd:type")
+    @XmlAttribute(name = "xsi:type")
     protected String type = "ns2:Map";
 
     public String getType() {

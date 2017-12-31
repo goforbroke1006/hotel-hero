@@ -55,7 +55,7 @@ public class DrebeDengiClient {
         System.setProperty("com.sun.xml.ws.transport.http.HttpAdapter.dump", "true");
         System.setProperty("com.sun.xml.internal.ws.transport.http.HttpAdapter.dump", "true");
 
-//        request.setCredentials("demo_api","demo@example.com","demo");
+        request.setCredentials("demo_api","demo@example.com","demo");
 
         DdengiService service = new DdengiService(new URL("http://www.drebedengi.ru/soap/?wsdl"));
 
@@ -74,6 +74,8 @@ public class DrebeDengiClient {
                 GetRecordListResponse.class,
                 GetRecordListReturnItem.class
         );
+
+//        JAXBContext context = JAXBContext.newInstance("com.gfb.hotelHero.ddengi.model");
 
         Dispatch<Object> dispatch = service.createDispatch(new QName("urn:ddengi", "SoapPort"), context, Service.Mode.PAYLOAD);
         dispatch.getRequestContext().put(Dispatch.ENDPOINT_ADDRESS_PROPERTY, "http://www.drebedengi.ru/soap/?wsdl");

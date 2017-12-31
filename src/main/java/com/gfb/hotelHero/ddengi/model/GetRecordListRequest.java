@@ -2,13 +2,13 @@ package com.gfb.hotelHero.ddengi.model;
 
 import javax.xml.bind.annotation.*;
 
-//@XmlAccessorType(XmlAccessType.FIELD)
-//@XmlType(name = "", propOrder = {
-//        "params",
-//})
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "", propOrder = {
+        "params",
+})
 @XmlRootElement(name = "getRecordList")
 @XmlSeeAlso({GetRecordListRequestParams.class})
-public class GetRecordListRequest /*extends BaseRequest*/ {
+public class GetRecordListRequest extends BaseRequest {
 
 //    @XmlElementWrapper(name = "params")
 //    @XmlElement(name = "item")

@@ -8,6 +8,7 @@ import java.util.List;
         "items",
 })
 @XmlRootElement(name = "getRecordListResponse", namespace = "urn:ddengi")
+@XmlSeeAlso({GetRecordListReturnItem.class})
 public class GetRecordListResponse {
     @XmlElementWrapper(name = "getRecordListReturn")
     @XmlElement(name = "item")

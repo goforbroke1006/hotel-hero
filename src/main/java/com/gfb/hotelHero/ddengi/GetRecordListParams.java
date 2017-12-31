@@ -14,6 +14,7 @@ import javax.xml.bind.annotation.*;
         "tag",
 })
 @XmlRootElement(name = "GetRecordListParams")
+@Deprecated
 public class GetRecordListParams {
     @XmlElement(name = "is_report")
     protected Boolean report;

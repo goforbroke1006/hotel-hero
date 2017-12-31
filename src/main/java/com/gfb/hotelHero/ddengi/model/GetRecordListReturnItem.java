@@ -9,6 +9,7 @@ import java.util.List;
         "value",
 })
 @XmlRootElement(name = "item")
+@XmlSeeAlso({Item.class})
 public class GetRecordListReturnItem {
     @XmlElement(name = "key")
     protected Integer key;

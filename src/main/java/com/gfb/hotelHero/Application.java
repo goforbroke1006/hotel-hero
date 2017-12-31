@@ -3,7 +3,6 @@ package com.gfb.hotelHero;
 //import com.gfb.hotelHero.ddengi.GetRecordList;
 
 import com.gfb.hotelHero.ddengi.DrebeDengiClient;
-import com.gfb.hotelHero.ddengi.GetRecordListParams;
 import com.gfb.hotelHero.ddengi.model.GetRecordListRequest;
 import com.gfb.hotelHero.ddengi.model.GetRecordListResponse;
 import com.gfb.hotelHero.ddengi.model.Item;
@@ -32,6 +31,7 @@ import java.io.InputStream;
 import java.io.StringWriter;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 
 public class Application {
     //    @WebServiceRef(wsdlLocation = "http://www.drebedengi.ru/soap/?wsdl")
@@ -50,21 +50,24 @@ public class Application {
     }*/
 
     public static void main(String[] args) throws Exception {
+        JAXBContext context = JAXBContext.newInstance(ArrayList.class);
+
         GetRecordListRequest request1 = new GetRecordListRequest();
-        request1.setCredentials("demo_api", "demo@example.com", "demo");
-        request1
-                .addParam(new Item("is_report", false))
-                .addParam(new Item("is_show_duty", true))
-                .addParam(new Item("r_period", 8))
-                .addParam(new Item("r_how", 1))
-                .addParam(new Item("r_what", 6))
-                .addParam(new Item("r_currency", 0))
-                .addParam(new Item("r_is_place", 0))
-                .addParam(new Item("r_is_tag", 0))
-        ;
+//        request1.setCredentials("demo_api", "demo@example.com", "demo");
+//        request1
+//                .addParam(new Item("is_report", false))
+//                .addParam(new Item("is_show_duty", true))
+//                .addParam(new Item("r_period", 8))
+//                .addParam(new Item("r_how", 1))
+//                .addParam(new Item("r_what", 6))
+//                .addParam(new Item("r_currency", 0))
+//                .addParam(new Item("r_is_place", 0))
+//                .addParam(new Item("r_is_tag", 0))
+//        ;
 
         DrebeDengiClient client = new DrebeDengiClient();
-        GetRecordListResponse recordList = client.getRecordList(null);
+        GetRecordListResponse recordList = client.getRecordList(request1);
+        return;
     }
 
 

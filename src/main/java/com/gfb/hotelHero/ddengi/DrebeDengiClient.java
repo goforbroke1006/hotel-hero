@@ -1,9 +1,6 @@
 package com.gfb.hotelHero.ddengi;
 
-import com.gfb.hotelHero.ddengi.model.GetRecordListRequest;
-import com.gfb.hotelHero.ddengi.model.GetRecordListResponse;
-import com.gfb.hotelHero.ddengi.model.GetRecordListReturnItem;
-import com.gfb.hotelHero.ddengi.model.Item;
+import com.gfb.hotelHero.ddengi.model.*;
 import com.sun.xml.ws.binding.BindingImpl;
 import com.sun.xml.ws.client.WSServiceDelegate;
 import com.sun.xml.ws.client.dispatch.JAXBDispatch;
@@ -71,11 +68,13 @@ public class DrebeDengiClient {
         JAXBContext context = JAXBContext.newInstance(
                 Item.class,
                 GetRecordListRequest.class,
+                GetRecordListRequestParams.class,
                 GetRecordListResponse.class,
                 GetRecordListReturnItem.class
         );
 
 //        JAXBContext context = JAXBContext.newInstance("com.gfb.hotelHero.ddengi.model");
+//        JAXBContext context = JAXBContext.newInstance("com.gfb.hotelHero");
 
         Dispatch<Object> dispatch = service.createDispatch(new QName("urn:ddengi", "SoapPort"), context, Service.Mode.PAYLOAD);
         dispatch.getRequestContext().put(Dispatch.ENDPOINT_ADDRESS_PROPERTY, "http://www.drebedengi.ru/soap/?wsdl");

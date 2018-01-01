@@ -10,10 +10,11 @@ Simple project with Spring and Jetty (works without servlet-container)
 
 | Key | Default value | Description |
 | ------ | ------ | ------ | 
-| DREBEDENGI__WSDL_LOCATION | --- | ссылка на API сервиса обработки заявок
-| DREBEDENGI__LOGIN         | https://scoring-stage.devim.team:9999         | ссылка на API сервиса обработки заявок
-| DREBEDENGI__PASSWORD      | https://scoring-stage.devim.team:9999         | ссылка на API сервиса обработки заявок
-| HOTEL_HERO__VKONTAKTE_TOKEN     | https://scoring-stage.devim.team:9999         | ссылка на API сервиса обработки заявок
+| DREBEDENGI__WSDL_LOCATION | --- | Link to ddengi WSDL file
+| DREBEDENGI__APP_ID         | --- | ddengi API application ID
+| DREBEDENGI__LOGIN         | --- | ddengi login
+| DREBEDENGI__PASSWORD      | --- | ddengi password
+| HOTEL_HERO__VKONTAKTE_TOKEN     | --- | vkontakte token (need with "messages" scope)
 
 ### Useful links
 

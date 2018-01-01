@@ -16,10 +16,22 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
     -->
 
     <bean id="drebeDengiClient" class="com.gfb.hotelHero.ddengi.DrebeDengiClient">
-        <constructor-arg value="http://www.drebedengi.ru/soap/?wsdl"/>
-        <constructor-arg value="demo_api"/>
-        <constructor-arg value="demo@example.com"/>
-        <constructor-arg value="demo"/>
+        <constructor-arg value="#{systemEnvironment['DREBEDENGI__WSDL_LOCATION']}"/>
+        <constructor-arg value="#{systemEnvironment['DREBEDENGI__APP_ID']}"/>
+        <constructor-arg value="#{systemEnvironment['DREBEDENGI__LOGIN']}"/>
+        <constructor-arg value="#{systemEnvironment['DREBEDENGI__PASSWORD']}"/>
+    </bean>
+
+    <bean id="vkontakteClient" class="com.gfb.hotelHero.vkontakte.VkontakteClient">
+        <constructor-arg value="https://api.vk.com/method/"/>
+        <constructor-arg value="5.62"/>
+        <constructor-arg value="#{systemEnvironment['HOTEL_HERO__VKONTAKTE_TOKEN']}"/>
+        <!--<constructor-arg>
+            <value>${systemProperties['HOTEL_HERO__VKONTAKTE_TOKEN']}</value>
+        </constructor-arg>-->
+        <!--<property name="accessToken" value="#{systemEnvironment['HOTEL_HERO__VKONTAKTE_TOKEN']}"/>-->
+        <!--<property name="accessToken" value="#{systemEnvironment['PATH']}"/>-->
+        <!--<property name="properties" value="#{systemEnvironment}"/>-->
     </bean>
 
 </beans>

@@ -35,7 +35,7 @@
                     <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="/registration/create"><i class="fa fa-circle-o"></i>Форма регистрации</a></li>
+                    <li><a href="/registration/form"><i class="fa fa-circle-o"></i>Форма регистрации</a></li>
                     <li><a href="/registration/settings"><i class="fa fa-circle-o"></i>Настройки</a></li>
                 </ul>
             </li>

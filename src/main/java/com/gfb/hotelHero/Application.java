@@ -3,6 +3,11 @@ package com.gfb.hotelHero;
 import com.gfb.hotelHero.ddengi.model.GetRecordListRequest;
 import com.gfb.hotelHero.ddengi.model.GetRecordListResponse;
 import com.gfb.hotelHero.server.WebServer;
+import com.gfb.hotelHero.vkontakte.VkontakteClient;
+import com.gfb.hotelHero.vkontakte.domain.messages.GetHistoryRequest;
+import com.gfb.hotelHero.vkontakte.domain.messages.GetHistoryResponse;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import javax.xml.bind.JAXB;
 import javax.xml.bind.JAXBContext;
@@ -20,6 +25,16 @@ public class Application {
 
     public static void main(String[] args) throws Exception {
         new WebServer(8080).start();
+    }
+
+    public static void main4(String[] args) throws Exception {
+        ClassPathXmlApplicationContext ctx =
+                new ClassPathXmlApplicationContext("application-context.xml");
+        VkontakteClient client = (VkontakteClient) ctx.getBean("vkontakteClient");
+        GetHistoryResponse history = client.getMessagesPort().getHistory(new GetHistoryRequest(
+                2314852,49, GetHistoryRequest.PeerTypes.GROUP_CONVERSATION));
+
+        return;
     }
 
     public static void main2(String[] args) throws Exception {

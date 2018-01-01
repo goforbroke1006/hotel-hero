@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/registration")
 public class RegistrationFormController {
 
-    @RequestMapping(value = "/create", method = RequestMethod.GET)
+    @RequestMapping(value = "/form", method = RequestMethod.GET)
     public String index() {
         return "reg-form/index";
     }
 
-    @RequestMapping(value = "/create", method = RequestMethod.POST)
+    @RequestMapping(value = "/form", method = RequestMethod.POST)
     public String saveForm(
             @ModelAttribute("person") Person person,
             BindingResult bindingResult
@@ -29,6 +29,7 @@ public class RegistrationFormController {
     public String settings() {
         return "reg-form/settings";
     }
+
     @RequestMapping(value = "/settings", method = RequestMethod.POST)
     public String settingsSave() {
         return "reg-form/settings";

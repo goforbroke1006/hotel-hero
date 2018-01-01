@@ -4,6 +4,9 @@ import com.gfb.hotelHero.ddengi.DrebeDengiClient;
 import com.gfb.hotelHero.ddengi.model.GetRecordListRequest;
 import com.gfb.hotelHero.ddengi.model.GetRecordListResponse;
 import com.gfb.hotelHero.ddengi.model.Item;
+import com.gfb.hotelHero.vkontakte.VkontakteClient;
+import com.gfb.hotelHero.vkontakte.domain.messages.GetHistoryRequest;
+import com.gfb.hotelHero.vkontakte.domain.messages.GetHistoryResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +21,9 @@ public class PaymentAccountingController {
 
     @Autowired
     private DrebeDengiClient drebeDengiClient;
+
+    @Autowired
+    private VkontakteClient vkontakteClient;
 
     @RequestMapping(value = "/list")
     public String list(Model model) {
@@ -34,6 +40,11 @@ public class PaymentAccountingController {
         }));
         GetRecordListResponse o = drebeDengiClient.getRecordList(request);
         model.addAttribute("records", o);
+
+        GetHistoryRequest hr = new GetHistoryRequest(2314852, 49, GetHistoryRequest.PeerTypes.GROUP_CONVERSATION);
+        GetHistoryResponse history = vkontakteClient.getMessagesPort().getHistory(hr);
+        model.addAttribute("history", history);
+
         return "payments-accounting/list";
     }
 

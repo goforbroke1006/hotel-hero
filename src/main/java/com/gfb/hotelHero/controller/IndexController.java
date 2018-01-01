@@ -9,9 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class IndexController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String index(Model m) {
-//        m.addAttribute("username", System.getProperty("user.name"));
-        m.addAttribute("username", "GFB");
+    public String index(Model model) {
         return "index/index";
     }
 

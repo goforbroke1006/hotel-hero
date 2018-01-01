@@ -1,106 +1,26 @@
 package com.gfb.hotelHero;
 
-//import com.gfb.hotelHero.ddengi.GetRecordList;
-
-import com.gfb.hotelHero.ddengi.DrebeDengiClient;
 import com.gfb.hotelHero.ddengi.model.GetRecordListRequest;
 import com.gfb.hotelHero.ddengi.model.GetRecordListResponse;
-import com.gfb.hotelHero.ddengi.model.Item;
-import com.sun.xml.messaging.saaj.soap.SOAPDocumentImpl;
-import com.sun.xml.messaging.saaj.util.ByteInputStream;
-import com.sun.xml.messaging.saaj.util.JAXMStreamSource;
-import org.w3c.dom.Document;
+import com.gfb.hotelHero.server.WebServer;
 
 import javax.xml.bind.JAXB;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
-import javax.xml.namespace.QName;
 import javax.xml.soap.*;
-import javax.xml.transform.Source;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
-import javax.xml.ws.Dispatch;
-import javax.xml.ws.Service;
-import javax.xml.ws.WebServiceRef;
-import javax.xml.ws.soap.SOAPBinding;
-import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
 import java.io.StringWriter;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Application {
-    //    @WebServiceRef(wsdlLocation = "http://www.drebedengi.ru/soap/?wsdl")
-//    static DdengiService service;
-
-    /*private void testDdengi() throws MalformedURLException {
-        DdengiService service = new DdengiService(new URL("http://www.drebedengi.ru/soap/?wsdl"));
-
-        SoapPortType port = service.getSoapPort();
-
-        GetRecordListParams params = new GetRecordListParams(false, true, 9, 8, 0, 0, 0, 0);
-
-        Object response = port.getRecordList("demo_api", "demo@example.com", "demo",
-                params, new Integer[]{});
-        System.out.println(response);
-    }*/
 
     public static void main(String[] args) throws Exception {
-//        JAXBContext context = JAXBContext.newInstance(ArrayList.class);
-
-        GetRecordListRequest request1 = new GetRecordListRequest();
-//        request1.setParams(new Item[]{
-//                new Item("is_report", false),
-//                new Item("is_show_duty", true),
-//                new Item("r_period", 8),
-//                new Item("r_how", 1),
-//                new Item("r_what", 6),
-//                new Item("r_currency", 0),
-//                new Item("r_is_place", 0),
-//                new Item("r_is_tag", 0),
-//        });
-
-//        request1.getParams().put("is_report", false);
-//        request1.getParams().put("is_show_duty", true);
-//        request1.getParams().put("r_period", 8);
-//        request1.getParams().put("r_how", 1);
-//        request1.getParams().put("r_what", 6);
-//        request1.getParams().put("r_currency", 0);
-//        request1.getParams().put("r_is_place", 0);
-//        request1.getParams().put("r_is_tag", 0);
-
-//        request1.getParams()
-//                .addItem(new Item("is_report", false))
-//                .addItem(new Item("is_show_duty", true))
-//                .addItem(new Item("r_period", 8))
-//                .addItem(new Item("r_how", 1))
-//                .addItem(new Item("r_what", 6))
-//                .addItem(new Item("r_currency", 0))
-//                .addItem(new Item("r_is_place", 0))
-//                .addItem(new Item("r_is_tag", 0))
-//        ;
-
-        request1.getParams().getItems().addAll(Arrays.asList(new Item[]{
-                new Item("is_report", false),
-                new Item("is_show_duty", true),
-                new Item("r_period", 8),
-                new Item("r_how", 1),
-                new Item("r_what", 6),
-                new Item("r_currency", 0),
-                new Item("r_is_place", 0),
-                new Item("r_is_tag", 0),
-        }));
-
-        DrebeDengiClient client = new DrebeDengiClient();
-        GetRecordListResponse recordList = client.getRecordList(request1);
-        return;
+        new WebServer(8080).start();
     }
-
 
     public static void main2(String[] args) throws Exception {
 

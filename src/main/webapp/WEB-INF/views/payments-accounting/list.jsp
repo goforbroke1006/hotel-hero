@@ -1,8 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="java.util.List"%>
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <!DOCTYPE html>
 <html>
 <head>
@@ -69,7 +67,44 @@
         <!-- Main content -->
         <section class="content">
 
-
+            <div class="box">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Bordered Table</h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <table class="table table-bordered">
+                        <tr>
+                            <th>ID</th>
+                            <th>Информация</th>
+                        </tr>
+                        <c:forEach items="${records.items}" var="item">
+                            <tr>
+                                <td>${item.key}</td>
+                                <td>
+                                    <ul>
+                                        <c:forEach items="${item.value}" var="prop">
+                                            <li>
+                                                <b>${prop.key}</b> - ${prop.value}
+                                            </li>
+                                        </c:forEach>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </c:forEach>
+                    </table>
+                </div>
+                <!-- /.box-body -->
+                <div class="box-footer clearfix">
+                    <ul class="pagination pagination-sm no-margin pull-right">
+                        <li><a href="#">&laquo;</a></li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">&raquo;</a></li>
+                    </ul>
+                </div>
+            </div>
 
         </section>
         <!-- /.content -->

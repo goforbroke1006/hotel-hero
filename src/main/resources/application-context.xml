@@ -15,4 +15,11 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
        application context.
     -->
 
+    <bean id="drebeDengiClient" class="com.gfb.hotelHero.ddengi.DrebeDengiClient">
+        <constructor-arg value="http://www.drebedengi.ru/soap/?wsdl"/>
+        <constructor-arg value="demo_api"/>
+        <constructor-arg value="demo@example.com"/>
+        <constructor-arg value="demo"/>
+    </bean>
+
 </beans>

@@ -10,19 +10,26 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.namespace.QName;
+import javax.xml.soap.*;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 import javax.xml.ws.BindingProvider;
 import javax.xml.ws.Dispatch;
 import javax.xml.ws.Service;
+import javax.xml.ws.handler.Handler;
+import javax.xml.ws.handler.MessageContext;
+import javax.xml.ws.handler.soap.SOAPHandler;
+import javax.xml.ws.handler.soap.SOAPMessageContext;
 import java.io.PrintStream;
 import java.io.StringReader;
 import java.io.StringWriter;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
 
 public class DrebeDengiClient {
 
@@ -34,17 +41,6 @@ public class DrebeDengiClient {
     public DrebeDengiClient() throws MalformedURLException {
     }
 
-    /*private static URL getWSDLURL(String urlStr) {
-        URL url = null;
-        try {
-            url = new URL(urlStr);
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-            throw new RuntimeException(e);
-        }
-        return url;
-    }*/
-
     public GetRecordListResponse getRecordList(GetRecordListRequest request) throws JAXBException, MalformedURLException {
 //        new SOAPMessageDispatch(qName, Service.Mode.MESSAGE, null, null);
         System.setProperty("com.sun.xml.ws.transport.http.client.HttpTransportPipe.dump", "true");
@@ -52,11 +48,11 @@ public class DrebeDengiClient {
         System.setProperty("com.sun.xml.ws.transport.http.HttpAdapter.dump", "true");
         System.setProperty("com.sun.xml.internal.ws.transport.http.HttpAdapter.dump", "true");
 
-        request.setCredentials("demo_api","demo@example.com","demo");
+        request.setCredentials("demo_api", "demo@example.com", "demo");
 
         DdengiService service = new DdengiService(new URL("http://www.drebedengi.ru/soap/?wsdl"));
 
-        /*JAXBContext context = JAXBContext.newInstance("com.gfb.hotelHero.ddengi.model");*/ /*JAXBContext.newInstance(
+        /*JAXBContext jaxbContext = JAXBContext.newInstance("com.gfb.hotelHero.ddengi.model");*/ /*JAXBContext.newInstance(
                 ArrayList.class,
                 Item.class,
                 GetRecordListRequest.class,
@@ -65,7 +61,7 @@ public class DrebeDengiClient {
         )*/
         ;
 
-        JAXBContext context = JAXBContext.newInstance(
+        JAXBContext jaxbContext = JAXBContext.newInstance(
                 Item.class,
                 GetRecordListRequest.class,
                 GetRecordListRequestParams.class,
@@ -73,14 +69,59 @@ public class DrebeDengiClient {
                 GetRecordListReturnItem.class
         );
 
-//        JAXBContext context = JAXBContext.newInstance("com.gfb.hotelHero.ddengi.model");
-//        JAXBContext context = JAXBContext.newInstance("com.gfb.hotelHero");
+//        JAXBContext jaxbContext = JAXBContext.newInstance("com.gfb.hotelHero.ddengi.model");
+//        JAXBContext jaxbContext = JAXBContext.newInstance("com.gfb.hotelHero");
 
-        Dispatch<Object> dispatch = service.createDispatch(new QName("urn:ddengi", "SoapPort"), context, Service.Mode.PAYLOAD);
+        Dispatch<Object> dispatch = service.createDispatch(new QName("urn:ddengi", "SoapPort"), jaxbContext, Service.Mode.PAYLOAD);
         dispatch.getRequestContext().put(Dispatch.ENDPOINT_ADDRESS_PROPERTY, "http://www.drebedengi.ru/soap/?wsdl");
         dispatch.getRequestContext().put(BindingProvider.SOAPACTION_USE_PROPERTY, true);
 
-//        Marshaller m = context.createMarshaller();
+        dispatch.getBinding().setHandlerChain(Arrays.asList(
+                new SOAPHandler<SOAPMessageContext>() {
+                    @Override
+                    public Set<QName> getHeaders() {
+                        return null;
+                    }
+
+                    @Override
+                    public boolean handleMessage(SOAPMessageContext context) {
+                        try {
+                            final SOAPMessage soapMessage = context.getMessage();
+                            final SOAPEnvelope soapEnvelope = soapMessage.getSOAPPart().getEnvelope();
+                            final SOAPHeader soapHeader = soapMessage.getSOAPHeader();
+                            final SOAPBody soapBody = soapMessage.getSOAPBody();
+
+                            soapEnvelope.addNamespaceDeclaration("SOAP-ENV", "http://schemas.xmlsoap.org/soap/envelope/");
+                            soapEnvelope.addNamespaceDeclaration("SOAP-ENC", "http://schemas.xmlsoap.org/soap/encoding/");
+                            soapEnvelope.addNamespaceDeclaration("ns1", "urn:ddengi");
+                            soapEnvelope.addNamespaceDeclaration("ns2", "http://xml.apache.org/xml-soap");
+                            soapEnvelope.addNamespaceDeclaration("xsd", "http://www.w3.org/2001/XMLSchema");
+                            soapEnvelope.addNamespaceDeclaration("xsi", "http://www.w3.org/2001/XMLSchema-instance");
+
+//                            soapEnvelope.setPrefix("SOAP-ENV");
+//                            soapHeader.setPrefix("SOAP-ENV");
+//                            soapBody.setPrefix("SOAP-ENV");
+
+                            soapMessage.saveChanges();
+                        } catch (SOAPException e) {
+//                    e.printStackTrace();
+                        }
+                        return true;
+                    }
+
+                    @Override
+                    public boolean handleFault(SOAPMessageContext soapMessageContext) {
+                        return true;
+                    }
+
+                    @Override
+                    public void close(MessageContext messageContext) {
+
+                    }
+                }
+        ));
+
+//        Marshaller m = jaxbContext.createMarshaller();
 //        StringWriter sw = new StringWriter();
 //        StreamResult sr = new StreamResult(sw);
 //        m.marshal(request, sr);

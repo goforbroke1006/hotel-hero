@@ -12,7 +12,8 @@ import java.util.*;
 //@XmlSeeAlso({Item.class})
 public class GetRecordListRequestParams {
 
-    @XmlAttribute(name = "xsi:type", namespace = "http://www.w3.org/2001/XMLSchema-instance")
+//    @XmlAttribute(name = "xsi:type", namespace = "http://xml.apache.org/xml-soap")
+    @XmlAttribute(name = "type", namespace = "http://www.w3.org/2001/XMLSchema-instance")
     protected String type = "ns2:Map";
 
     public String getType() {

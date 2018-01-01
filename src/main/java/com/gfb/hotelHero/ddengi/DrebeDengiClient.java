@@ -42,7 +42,7 @@ public class DrebeDengiClient {
     }
 
     public GetRecordListResponse getRecordList(GetRecordListRequest request) throws JAXBException, MalformedURLException {
-//        new SOAPMessageDispatch(qName, Service.Mode.MESSAGE, null, null);
+
         System.setProperty("com.sun.xml.ws.transport.http.client.HttpTransportPipe.dump", "true");
         System.setProperty("com.sun.xml.internal.ws.transport.http.client.HttpTransportPipe.dump", "true");
         System.setProperty("com.sun.xml.ws.transport.http.HttpAdapter.dump", "true");
@@ -52,15 +52,6 @@ public class DrebeDengiClient {
 
         DdengiService service = new DdengiService(new URL("http://www.drebedengi.ru/soap/?wsdl"));
 
-        /*JAXBContext jaxbContext = JAXBContext.newInstance("com.gfb.hotelHero.ddengi.model");*/ /*JAXBContext.newInstance(
-                ArrayList.class,
-                Item.class,
-                GetRecordListRequest.class,
-                GetRecordListResponse.class,
-                GetRecordListReturnItem.class
-        )*/
-        ;
-
         JAXBContext jaxbContext = JAXBContext.newInstance(
                 Item.class,
                 GetRecordListRequest.class,
@@ -69,14 +60,28 @@ public class DrebeDengiClient {
                 GetRecordListReturnItem.class
         );
 
-//        JAXBContext jaxbContext = JAXBContext.newInstance("com.gfb.hotelHero.ddengi.model");
-//        JAXBContext jaxbContext = JAXBContext.newInstance("com.gfb.hotelHero");
-
         Dispatch<Object> dispatch = service.createDispatch(new QName("urn:ddengi", "SoapPort"), jaxbContext, Service.Mode.PAYLOAD);
         dispatch.getRequestContext().put(Dispatch.ENDPOINT_ADDRESS_PROPERTY, "http://www.drebedengi.ru/soap/?wsdl");
         dispatch.getRequestContext().put(BindingProvider.SOAPACTION_USE_PROPERTY, true);
 
-        dispatch.getBinding().setHandlerChain(Arrays.asList(
+        dispatch.getBinding().getHandlerChain().add(new Handler() {
+            @Override
+            public boolean handleMessage(MessageContext context) {
+                System.out.println(context.toString());
+                return true;
+            }
+
+            @Override
+            public boolean handleFault(MessageContext context) {
+                return false;
+            }
+
+            @Override
+            public void close(MessageContext messageContext) {
+
+            }
+        });
+        /*dispatch.getBinding().setHandlerChain(Arrays.asList(
                 new SOAPHandler<SOAPMessageContext>() {
                     @Override
                     public Set<QName> getHeaders() {
@@ -119,7 +124,7 @@ public class DrebeDengiClient {
 
                     }
                 }
-        ));
+        ));*/
 
 //        Marshaller m = jaxbContext.createMarshaller();
 //        StringWriter sw = new StringWriter();

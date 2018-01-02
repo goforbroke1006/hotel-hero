@@ -30,7 +30,7 @@ public class Person implements Serializable {
     private Date birthday;
     private Genders gender = Genders.MALE;
 
-    private PlaceOfBirth placeOfBirth;
+    private Address placeOfBirth;
     private IdentityDocument identityDocument;
 
     private RightToStayConfirmingDocument stayConfirmingDocument;
@@ -87,11 +87,11 @@ public class Person implements Serializable {
         return this;
     }
 
-    public PlaceOfBirth getPlaceOfBirth() {
+    public Address getPlaceOfBirth() {
         return placeOfBirth;
     }
 
-    public Person setPlaceOfBirth(PlaceOfBirth placeOfBirth) {
+    public Person setPlaceOfBirth(Address placeOfBirth) {
         this.placeOfBirth = placeOfBirth;
         return this;
     }

@@ -25,13 +25,6 @@ public class RegistrationFormController {
 
     private static final Logger LOGGER = Logger.getLogger(RegistrationFormController.class);
 
-//    @InitBinder
-//    public void initBinder(WebDataBinder binder) {
-//        SimpleDateFormat sdf = new SimpleDateFormat("MM-dd-yyyy");
-//        sdf.setLenient(true);
-//        binder.registerCustomEditor(Date.class, new CustomDateEditor(sdf, true));
-//    }
-
     @RequestMapping(value = "/form", method = RequestMethod.GET)
     public String index(Model model) {
         model.addAttribute("person", new Person());

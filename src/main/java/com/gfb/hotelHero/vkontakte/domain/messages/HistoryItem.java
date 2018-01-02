@@ -11,7 +11,7 @@ import org.codehaus.jackson.annotate.JsonProperty;
 public class HistoryItem {
 
     @JsonProperty("id")
-    private Integer id;
+    private Long id;
 
     @JsonProperty("body")
     private String message;
@@ -34,11 +34,11 @@ public class HistoryItem {
     @JsonProperty("chat_id")
     private Integer chatId;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public HistoryItem setId(Integer id) {
+    public HistoryItem setId(Long id) {
         this.id = id;
         return this;
     }

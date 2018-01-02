@@ -8,3 +8,4 @@
 /dependency-reduced-pom.xml
 
 bower_components
+*.db

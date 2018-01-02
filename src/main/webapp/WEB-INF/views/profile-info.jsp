@@ -1,13 +1,13 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 
 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-    <img src="/AdminLTE-2.4.2/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+    <img src="${userAvatarUrl}" class="user-image" alt="User Image">
     <span class="hidden-xs">${username}</span>
 </a>
 <ul class="dropdown-menu">
     <!-- User image -->
     <li class="user-header">
-        <img src="/AdminLTE-2.4.2/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+        <img src="${userAvatarUrl}" class="img-circle" alt="User Image">
 
         <p>
             ${username} - Web Developer

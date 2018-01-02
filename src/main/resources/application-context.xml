@@ -15,6 +15,8 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
        application context.
     -->
 
+    <context:component-scan base-package="com.gfb.hotelHero.dao,com.gfb.hotelHero.listener"/>
+
     <bean id="drebeDengiClient" class="com.gfb.hotelHero.ddengi.DrebeDengiClient">
         <constructor-arg value="#{systemEnvironment['DREBEDENGI__WSDL_LOCATION']}"/>
         <constructor-arg value="#{systemEnvironment['DREBEDENGI__APP_ID']}"/>
@@ -26,12 +28,6 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
         <constructor-arg value="https://api.vk.com/method/"/>
         <constructor-arg value="5.62"/>
         <constructor-arg value="#{systemEnvironment['HOTEL_HERO__VKONTAKTE_TOKEN']}"/>
-        <!--<constructor-arg>
-            <value>${systemProperties['HOTEL_HERO__VKONTAKTE_TOKEN']}</value>
-        </constructor-arg>-->
-        <!--<property name="accessToken" value="#{systemEnvironment['HOTEL_HERO__VKONTAKTE_TOKEN']}"/>-->
-        <!--<property name="accessToken" value="#{systemEnvironment['PATH']}"/>-->
-        <!--<property name="properties" value="#{systemEnvironment}"/>-->
     </bean>
 
 </beans>

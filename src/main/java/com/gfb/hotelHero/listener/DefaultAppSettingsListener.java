@@ -6,14 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 
-import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 
 @WebListener
 @Component
-public class GlobalVarsListener implements ServletContextListener {
+public class DefaultAppSettingsListener implements ServletContextListener {
 
     @Autowired
     private AppSettingsDao appSettingsDao;
@@ -22,12 +21,13 @@ public class GlobalVarsListener implements ServletContextListener {
     public void contextInitialized(ServletContextEvent event) {
         SpringBeanAutowiringSupport.processInjectionBasedOnCurrentContext(this);
 
-        ServletContext context = event.getServletContext();
-        context.setAttribute("username", System.getProperty("user.name"));
-
-        AppSettings settings = appSettingsDao.findActive();
-        if (null!= settings) {
-            context.setAttribute("userAvatarUrl", settings.getAvatarUrl());
+        if (appSettingsDao.findAll().size() == 0) {
+            AppSettings settings = new AppSettings();
+            settings.setPaymentRegexpList(
+                    "[\\w\\s]+[\\d\\s\\,]+руб.[\\s]+([\\d]{2}.[\\d]{2}.[\\d]{4})[\\s]+[\\d\\w\\sа-яА-ЯёЁ]+" +
+                    "\n" +
+                    "[\\d]+[\\s]+руб[\\s]+#[\\d]+[\\d\\w\\sа-яА-ЯёЁ]+");
+            appSettingsDao.add(settings);
         }
     }
 

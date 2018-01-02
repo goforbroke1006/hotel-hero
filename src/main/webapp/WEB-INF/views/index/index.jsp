@@ -213,7 +213,7 @@
                             <!-- /.item -->
                             <!-- chat item -->
                             <div class="item">
-                                <img src="/AdminLTE-2.4.2/dist/img/user2-160x160.jpg" alt="user image" class="offline">
+                                <img src="${userAvatarUrl}" alt="user image" class="offline">
 
                                 <p class="message">
                                     <a href="#" class="name">

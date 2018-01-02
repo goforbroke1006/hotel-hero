@@ -6,7 +6,7 @@
         <!-- Sidebar user panel -->
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="/AdminLTE-2.4.2/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                <img src="${userAvatarUrl}" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
                 <p>${username}</p>
@@ -48,6 +48,16 @@
                 <ul class="treeview-menu">
                     <li><a href="/payments-accounting/list"><i class="fa fa-circle-o"></i>Список оплат в "ДребеДеньги"</a></li>
                     <li><a href="/payments-accounting/vk-trace"><i class="fa fa-circle-o"></i>Выгрузка из ВКонтакте</a></li>
+                </ul>
+            </li>
+
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-edit"></i> <span>Настройки</span>
+                    <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="/settings/form"><i class="fa fa-circle-o"></i>Настройки</a></li>
                 </ul>
             </li>
 

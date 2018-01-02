@@ -1,5 +1,7 @@
 package com.gfb.hotelHero.domain;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -11,7 +13,10 @@ public class IdentityDocument implements Serializable {
     private String series;
     private String identifier;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dateOfIssueDate;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date validityTillDate;
 
     public Types getType() {

@@ -34,9 +34,9 @@
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
-    <jsp:include page="../main-header.jsp"/>
+    <jsp:include page="../--includes/main-header.jsp"/>
 
-    <jsp:include page="../main-sidebar.jsp"/>
+    <jsp:include page="../--includes/main-sidebar.jsp"/>
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">

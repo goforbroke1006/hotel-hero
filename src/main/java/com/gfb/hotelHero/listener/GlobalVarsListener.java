@@ -23,11 +23,18 @@ public class GlobalVarsListener implements ServletContextListener {
         SpringBeanAutowiringSupport.processInjectionBasedOnCurrentContext(this);
 
         ServletContext context = event.getServletContext();
+
+        context.setAttribute("applicationLabel", "Hotel hero");
+
         context.setAttribute("username", System.getProperty("user.name"));
 
         AppSettings settings = appSettingsDao.findActive();
-        if (null!= settings) {
+        if (null != settings) {
             context.setAttribute("userAvatarUrl", settings.getAvatarUrl());
+        }
+
+        if (null == settings || null == settings.getDateFormat() || settings.getDateFormat().isEmpty()) {
+            context.setAttribute("applicationDateFormat", "yyyy-mm-dd");
         }
     }
 

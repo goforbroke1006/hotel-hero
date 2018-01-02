@@ -1,5 +1,7 @@
 package com.gfb.hotelHero.domain;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -24,6 +26,7 @@ public class Person implements Serializable {
 
     private String nationality;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date birthday;
     private Genders gender = Genders.MALE;
 

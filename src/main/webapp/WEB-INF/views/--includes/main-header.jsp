@@ -4,9 +4,9 @@
     <!-- Logo -->
     <a href="/" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
-        <span class="logo-mini"><b>Hotel</b>H</span>
+        <span class="logo-mini"><b>${applicationLabel}</b></span>
         <!-- logo for regular state and mobile devices -->
-        <span class="logo-lg"><b>Hotel</b> Hero</span>
+        <span class="logo-lg"><b>${applicationLabel}</b></span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">

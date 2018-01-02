@@ -14,11 +14,23 @@ public class AppSettings implements Serializable {
     @Column(name = "id")
     private Long id;
 
+    @Column(name = "date_format")
+    private String dateFormat;
+
     @Column(name = "avatar_url")
     private String avatarUrl;
 
     @Column(name = "payment_regexp_list")
     private String paymentRegexpList;
+
+    public String getDateFormat() {
+        return dateFormat;
+    }
+
+    public AppSettings setDateFormat(String dateFormat) {
+        this.dateFormat = dateFormat;
+        return this;
+    }
 
     public Long getId() {
         return id;

@@ -19,17 +19,15 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
 
         <junit.version>3.8.1</junit.version>
-        <!--<logback.version>1.1.2</logback.version>-->
-        <!--<slf4j.version>1.7.5</slf4j.version>-->
-        <!--<jetty.version>9.3.0.M1</jetty.version>-->
-        <!--<jetty.version>9.3.11.v20160721</jetty.version>-->
-        <!--<jetty.version>8.0.0.M3</jetty.version>-->
+
         <slf4j-log4j.version>1.6.1</slf4j-log4j.version>
 
         <jetty.version>8.1.5.v20120716</jetty.version>
         <jetty.jsp.version>8.1.4.v20120524</jetty.jsp.version>
 
         <spring.version>4.3.11.RELEASE</spring.version>
+
+        <poi-ooxml.version>3.12</poi-ooxml.version>
     </properties>
 
     <repositories>
@@ -204,6 +202,18 @@
             <version>3.6.0</version>
         </dependency>
 
+        <!-- Manage XLS documents -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>${poi-ooxml.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>${poi-ooxml.version}</version>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -332,34 +342,6 @@
                 </dependencies>
             </plugin>
 
-            <!--<plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>jaxws-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>wsimport</goal>
-                        </goals>
-                        <configuration>
-                            <packageName>com.gfb.hotelHero.ddengi</packageName>
-                            <sourceDestDir>src/main/java</sourceDestDir>
-                            <wsdlFiles>
-                                <wsdlFile>${basedir}/src/wsdl/ddengi.wsdl</wsdlFile>
-                            </wsdlFiles>
-                            <bindingDirectory>${basedir}/src/wsdl/binding</bindingDirectory>
-                            <verbose>true</verbose>
-                            <keep>true</keep>
-                        </configuration>
-                    </execution>
-                </executions>
-                <dependencies>
-                    <dependency>
-                        <groupId>com.sun.xml.ws</groupId>
-                        <artifactId>jaxws-tools</artifactId>
-                        <version>2.3.0</version>
-                    </dependency>
-                </dependencies>
-            </plugin>-->
         </plugins>
 
     </build>

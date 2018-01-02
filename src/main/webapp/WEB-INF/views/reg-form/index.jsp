@@ -1,5 +1,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,9 +37,9 @@
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
-    <jsp:include page="../main-header.jsp"/>
+    <jsp:include page="../--includes/main-header.jsp"/>
 
-    <jsp:include page="../main-sidebar.jsp"/>
+    <jsp:include page="../--includes/main-sidebar.jsp"/>
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -55,7 +58,9 @@
 
         <!-- Main content -->
         <section class="content">
-            <form role="form" method="post">
+
+            <form:form method="POST" modelAttribute="person">
+
                 <div class="row">
                     <div class="col-md-6">
                         <div class="box box-info">
@@ -65,46 +70,42 @@
 
                             <div class="box-body">
                                 <div class="form-group">
-                                    <label for="person_lastName">Фамилия</label>
-                                    <input type="text" class="form-control" name="lastName"
-                                           id="person_lastName"
-                                           placeholder="Smith">
+                                    <form:label path="lastName">Фамилия</form:label>
+                                    <form:input path="lastName" class="form-control" placeholder="Смит"
+                                                minlength="2" required="required"/>
                                 </div>
                                 <div class="form-group">
-                                    <label for="person_firstName">Имя (отчество)</label>
-                                    <input type="text" class="form-control" name="firstName"
-                                           id="person_firstName"
-                                           placeholder="John">
+                                    <form:label path="firstName">Имя (отчество)</form:label>
+                                    <form:input path="firstName" class="form-control" placeholder="Джон"
+                                                minlength="2" required="required"/>
                                 </div>
                                 <div class="form-group">
-                                    <label for="person_nationality">Национальность</label>
-                                    <input type="text" class="form-control" name="nationality"
-                                           id="person_nationality"
-                                           placeholder="Nationality">
+                                    <form:label path="nationality">Национальность</form:label>
+                                    <form:input path="nationality" class="form-control" placeholder="Зимбабвэ"
+                                                minlength="2" required="required"/>
                                 </div>
                                 <div class="form-group">
-                                    <label for="person_birthday">Дата рождения:</label>
+                                    <form:label path="birthday">Дата рождения:</form:label>
 
                                     <div class="input-group date">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-calendar"></i>
-                                        </div>
-                                        <input type="text" class="form-control pull-right datepicker" name="birthday"
-                                               id="person_birthday">
+                                        <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+                                            <%--<fmt:formatDate value="${person.birthday}" var="birthdayStr"
+                                                            pattern="dd.mm.yyyy"/>--%>
+                                            <form:input path="birthday"
+                                                        class="form-control pull-right datepicker"
+                                                        required="required"/>
+                                        <%--<form:input type="text" path="birthday"
+                                                    class="form-control pull-right datepicker"
+                                                    value="<fmt:formatDate value='${person.birthday}' pattern='MM-dd-yyyy' />"/>--%>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <div class="radio">
-                                        <label>
-                                            <input type="radio" name="gender" id="person_gender_male"
-                                                   value="male"
-                                                   checked>Мужчина</label>
+                                        <form:label path="gender"><form:radiobutton path="gender" value="male"/>Мужчина</form:label>
                                     </div>
                                     <div class="radio">
-                                        <label>
-                                            <input type="radio" name="gender" id="person_gender_female"
-                                                   value="female">Женщина</label>
+                                        <form:label path="gender"><form:radiobutton path="gender" value="female"/>Женщина</form:label>
                                     </div>
                                 </div>
                             </div>
@@ -116,18 +117,14 @@
                             </div>
                             <div class="box-body">
                                 <div class="form-group">
-                                    <label for="person_lastName">Страна</label>
-                                    <input type="text" class="form-control"
-                                           name="placeOfBirth.county"
-                                           id="person_placeOfBirth_county"
-                                           placeholder="United States of America">
+                                    <form:label path="placeOfBirth.county">Страна</form:label>
+                                    <form:input path="placeOfBirth.county" class="form-control"
+                                                placeholder="Китай"/>
                                 </div>
                                 <div class="form-group">
-                                    <label for="person_lastName">Город</label>
-                                    <input type="text" class="form-control"
-                                           name="placeOfBirth.city"
-                                           id="person_placeOfBirth_city"
-                                           placeholder="New York">
+                                    <form:label path="placeOfBirth.city">Город</form:label>
+                                    <form:input path="placeOfBirth.city" class="form-control"
+                                                placeholder="Пекин"/>
                                 </div>
 
                             </div>
@@ -139,49 +136,35 @@
                             </div>
                             <div class="box-body">
                                 <div class="form-group">
-                                    <label for="person_identityDocument_type">Тип</label>
-                                    <select class="form-control" name="identityDocument.type"
-                                            id="person_identityDocument_type">
+                                    <form:label path="identityDocument.type">Тип</form:label>
+                                    <form:select path="identityDocument.type" class="form-control">
                                         <option selected>Паспорт</option>
-                                    </select>
+                                    </form:select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="person_identityDocument_series">Серия</label>
-                                    <input type="text" class="form-control"
-                                           name="identityDocument.series"
-                                           id="person_identityDocument_series"
-                                           placeholder="1234">
+                                    <form:label path="identityDocument.series">Серия</form:label>
+                                    <form:input path="identityDocument.series" class="form-control" placeholder="1234"/>
                                 </div>
                                 <div class="form-group">
-                                    <label for="person_lastName">Номер</label>
-                                    <input type="text" class="form-control"
-                                           name="identityDocument.identifier"
-                                           id="person_identityDocument_identifier"
-                                           placeholder="123456">
+                                    <form:label path="identityDocument.identifier">Номер</form:label>
+                                    <form:input path="identityDocument.identifier" class="form-control"
+                                                placeholder="11223344"/>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="person_identityDocument_dateOfIssueDate">Дата выдачи:</label>
-
+                                    <form:label path="identityDocument.dateOfIssueDate">Дата выдачи:</form:label>
                                     <div class="input-group date">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-calendar"></i>
-                                        </div>
-                                        <input type="text" class="form-control pull-left datepicker"
-                                               name="identityDocument.dateOfIssueDate"
-                                               id="person_identityDocument_dateOfIssueDate">
+                                        <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+                                        <form:input path="identityDocument.dateOfIssueDate"
+                                                    class="form-control pull-left datepicker"/>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="person_identityDocument_validityTillDate">Действителен до:</label>
-
+                                    <form:label path="identityDocument.validityTillDate">Действителен до:</form:label>
                                     <div class="input-group date">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-calendar"></i>
-                                        </div>
-                                        <input type="text" class="form-control pull-right datepicker"
-                                               name="identityDocument.validityTillDate"
-                                               id="person_identityDocument_validityTillDate">
+                                        <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+                                        <form:input path="identityDocument.validityTillDate"
+                                                    class="form-control pull-right datepicker"/>
                                     </div>
                                 </div>
                             </div>
@@ -191,53 +174,41 @@
                     <div class="col-md-6">
                         <div class="box box-info">
                             <div class="box-header with-border">
-                                <h3 class="box-title">Right to stay confirming document</h3>
+                                <h3 class="box-title">Вид и реквизиты документа, подтверждающего право на пребывание
+                                    (проживание)</h3>
                             </div>
                             <div class="box-body">
                                 <div class="form-group">
-                                    <label for="person_stayConfirmingDocument_type">Type</label>
-                                    <select class="form-control"
-                                            name="stayConfirmingDocument.type"
-                                            id="person_stayConfirmingDocument_type">
-                                        <option selected>Passport</option>
-                                    </select>
+                                    <form:label path="stayConfirmingDocument.type">Type</form:label>
+                                    <form:select path="stayConfirmingDocument.type" class="form-control">
+                                        <form:options items="${stayConfirmingDocumentTypes}"/>
+                                    </form:select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="person_stayConfirmingDocument_series">Series</label>
-                                    <input type="text" class="form-control"
-                                           name="stayConfirmingDocument.series"
-                                           id="person_stayConfirmingDocument_series"
-                                           placeholder="123456">
+                                    <form:label path="stayConfirmingDocument.series">Series</form:label>
+                                    <form:input path="stayConfirmingDocument.series" class="form-control"
+                                                placeholder="1234"/>
                                 </div>
                                 <div class="form-group">
-                                    <label for="person_stayConfirmingDocument_identifier">Identifier</label>
-                                    <input type="text" class="form-control"
-                                           name="stayConfirmingDocument.identifier"
-                                           id="person_stayConfirmingDocument_identifier"
-                                           placeholder="123456">
+                                    <form:label path="stayConfirmingDocument.identifier">Identifier</form:label>
+                                    <form:input path="stayConfirmingDocument.identifier" class="form-control"
+                                                placeholder="123456"/>
                                 </div>
                                 <div class="form-group">
-                                    <label for="person_stayConfirmingDocument_dateOfIssueDate">Issue date:</label>
-
+                                    <form:label path="stayConfirmingDocument.dateOfIssueDate">Issue date:</form:label>
                                     <div class="input-group date">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-calendar"></i>
-                                        </div>
-                                        <input type="text" class="form-control pull-left datepicker"
-                                               name="stayConfirmingDocument.dateOfIssueDate"
-                                               id="person_stayConfirmingDocument_dateOfIssueDate">
+                                        <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+                                        <form:input path="stayConfirmingDocument.dateOfIssueDate"
+                                                    class="form-control pull-left datepicker"/>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="person_stayConfirmingDocument_validityTillDate">Validity till:</label>
-
+                                    <form:label
+                                            path="stayConfirmingDocument.validityTillDate">Validity till:</form:label>
                                     <div class="input-group date">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-calendar"></i>
-                                        </div>
-                                        <input type="text" class="form-control pull-right datepicker"
-                                               name="stayConfirmingDocument.validityTillDate"
-                                               id="person_stayConfirmingDocument_validityTillDate">
+                                        <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+                                        <form:input path="stayConfirmingDocument.validityTillDate"
+                                                    class="form-control pull-right datepicker"/>
                                     </div>
                                 </div>
                             </div>
@@ -251,42 +222,34 @@
 
                                 <div class="box-body">
                                     <div class="form-group">
-                                        <label for="person_purpose">Цель въезда</label>
-                                        <select class="form-control" name="purpose"
-                                                id="person_purpose">
-                                            <option>Business trip</option>
-                                            <option selected>Туризм</option>
-                                            <option>Business</option>
-                                            <option>Learning</option>
-                                            <option>Работа</option>
-                                            <option>Частный визит</option>
-                                            <option>Transit</option>
-                                            <option>Humanitarian</option>
-                                            <option>Another</option>
-                                        </select>
+                                        <form:label path="purpose">Цель въезда</form:label>
+                                        <form:select path="purpose" class="form-control">
+                                            <%--<option>Business trip</option>--%>
+                                            <%--<option selected>Туризм</option>--%>
+                                            <%--<option>Business</option>--%>
+                                            <%--<option>Learning</option>--%>
+                                            <%--<option>Работа</option>--%>
+                                            <%--<option>Частный визит</option>--%>
+                                            <%--<option>Transit</option>--%>
+                                            <%--<option>Humanitarian</option>--%>
+                                            <%--<option>Another</option>--%>
+
+                                            <form:options items="${personPurposes}"/>
+                                        </form:select>
                                     </div>
                                     <div class="form-group">
-                                        <label for="person_arrivalDate">Дата прибытия:</label>
-
+                                        <form:label path="arrivalDate">Дата прибытия:</form:label>
                                         <div class="input-group date">
-                                            <div class="input-group-addon">
-                                                <i class="fa fa-calendar"></i>
-                                            </div>
-                                            <input type="text" class="form-control pull-left datepicker"
-                                                   name="arrivalDate"
-                                                   id="person_arrivalDate">
+                                            <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+                                            <form:input path="arrivalDate" class="form-control pull-left datepicker"/>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="person_durationOfStay">Проживает до:</label>
-
+                                        <form:label path="durationOfStay">Проживает до:</form:label>
                                         <div class="input-group date">
-                                            <div class="input-group-addon">
-                                                <i class="fa fa-calendar"></i>
-                                            </div>
-                                            <input type="text" class="form-control pull-left datepicker"
-                                                   name="durationOfStay"
-                                                   id="person_durationOfStay">
+                                            <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+                                            <form:input path="durationOfStay"
+                                                        class="form-control pull-left datepicker"/>
                                         </div>
                                     </div>
                                 </div>
@@ -300,18 +263,14 @@
 
                             <div class="box-body">
                                 <div class="form-group">
-                                    <label for="person_migrationCard_series">Серия</label>
-                                    <input type="text" class="form-control"
-                                           name="migrationCard.series"
-                                           id="person_migrationCard_series"
-                                           placeholder="4671">
+                                    <form:label path="migrationCard.series">Серия</form:label>
+                                    <form:input path="migrationCard.series" class="form-control" placeholder="4671"
+                                                required="required" minlength="2" maxlength="4"/>
                                 </div>
                                 <div class="form-group">
-                                    <label for="person_migrationCard_number">Номер</label>
-                                    <input type="text" class="form-control"
-                                           name="migrationCard.number"
-                                           id="person_migrationCard_number"
-                                           placeholder="123456">
+                                    <form:label path="migrationCard.number">Номер</form:label>
+                                    <form:input path="migrationCard.number" class="form-control" placeholder="1234567"
+                                                required="required" minlength="7" maxlength="7"/>
                                 </div>
                             </div>
                         </div>
@@ -325,208 +284,16 @@
                         </div>
                     </div>
                 </div>
-            </form>
+
+            </form:form>
+
         </section>
     </div>
 
-    <footer class="main-footer">
-        <div class="pull-right hidden-xs">
-            <b>Version</b> 2.4.0
-        </div>
-        <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong>
-        All rights reserved.
-    </footer>
+    <jsp:include page="../--includes/footer.jsp"/>
 
-    <aside class="control-sidebar control-sidebar-dark">
-        <!-- Create the tabs -->
-        <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
-            <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
-            <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
-        </ul>
-        <!-- Tab panes -->
-        <div class="tab-content">
-            <!-- Home tab content -->
-            <div class="tab-pane" id="control-sidebar-home-tab">
-                <h3 class="control-sidebar-heading">Recent Activity</h3>
-                <ul class="control-sidebar-menu">
-                    <li>
-                        <a href="javascript:void(0)">
-                            <i class="menu-icon fa fa-birthday-cake bg-red"></i>
+    <jsp:include page="../--includes/right-control-sidebar.jsp"/>
 
-                            <div class="menu-info">
-                                <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
-
-                                <p>Will be 23 on April 24th</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0)">
-                            <i class="menu-icon fa fa-user bg-yellow"></i>
-
-                            <div class="menu-info">
-                                <h4 class="control-sidebar-subheading">Frodo Updated His Profile</h4>
-
-                                <p>New phone +1(800)555-1234</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0)">
-                            <i class="menu-icon fa fa-envelope-o bg-light-blue"></i>
-
-                            <div class="menu-info">
-                                <h4 class="control-sidebar-subheading">Nora Joined Mailing List</h4>
-
-                                <p>nora@example.com</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0)">
-                            <i class="menu-icon fa fa-file-code-o bg-green"></i>
-
-                            <div class="menu-info">
-                                <h4 class="control-sidebar-subheading">Cron Job 254 Executed</h4>
-
-                                <p>Execution time 5 seconds</p>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
-                <!-- /.control-sidebar-menu -->
-
-                <h3 class="control-sidebar-heading">Tasks Progress</h3>
-                <ul class="control-sidebar-menu">
-                    <li>
-                        <a href="javascript:void(0)">
-                            <h4 class="control-sidebar-subheading">
-                                Custom Template Design
-                                <span class="label label-danger pull-right">70%</span>
-                            </h4>
-
-                            <div class="progress progress-xxs">
-                                <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0)">
-                            <h4 class="control-sidebar-subheading">
-                                Update Resume
-                                <span class="label label-success pull-right">95%</span>
-                            </h4>
-
-                            <div class="progress progress-xxs">
-                                <div class="progress-bar progress-bar-success" style="width: 95%"></div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0)">
-                            <h4 class="control-sidebar-subheading">
-                                Laravel Integration
-                                <span class="label label-warning pull-right">50%</span>
-                            </h4>
-
-                            <div class="progress progress-xxs">
-                                <div class="progress-bar progress-bar-warning" style="width: 50%"></div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0)">
-                            <h4 class="control-sidebar-subheading">
-                                Back End Framework
-                                <span class="label label-primary pull-right">68%</span>
-                            </h4>
-
-                            <div class="progress progress-xxs">
-                                <div class="progress-bar progress-bar-primary" style="width: 68%"></div>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
-                <!-- /.control-sidebar-menu -->
-
-            </div>
-            <!-- /.tab-pane -->
-            <!-- Stats tab content -->
-            <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
-            <!-- /.tab-pane -->
-            <!-- Settings tab content -->
-            <div class="tab-pane" id="control-sidebar-settings-tab">
-                <form method="post">
-                    <h3 class="control-sidebar-heading">General Settings</h3>
-
-                    <div class="form-group">
-                        <label class="control-sidebar-subheading">
-                            Report panel usage
-                            <input type="checkbox" class="pull-right" checked>
-                        </label>
-
-                        <p>
-                            Some information about this general settings option
-                        </p>
-                    </div>
-                    <!-- /.form-group -->
-
-                    <div class="form-group">
-                        <label class="control-sidebar-subheading">
-                            Allow mail redirect
-                            <input type="checkbox" class="pull-right" checked>
-                        </label>
-
-                        <p>
-                            Other sets of options are available
-                        </p>
-                    </div>
-                    <!-- /.form-group -->
-
-                    <div class="form-group">
-                        <label class="control-sidebar-subheading">
-                            Expose author name in posts
-                            <input type="checkbox" class="pull-right" checked>
-                        </label>
-
-                        <p>
-                            Allow the user to show his name in blog posts
-                        </p>
-                    </div>
-                    <!-- /.form-group -->
-
-                    <h3 class="control-sidebar-heading">Chat Settings</h3>
-
-                    <div class="form-group">
-                        <label class="control-sidebar-subheading">
-                            Show me as online
-                            <input type="checkbox" class="pull-right" checked>
-                        </label>
-                    </div>
-                    <!-- /.form-group -->
-
-                    <div class="form-group">
-                        <label class="control-sidebar-subheading">
-                            Turn off notifications
-                            <input type="checkbox" class="pull-right">
-                        </label>
-                    </div>
-                    <!-- /.form-group -->
-
-                    <div class="form-group">
-                        <label class="control-sidebar-subheading">
-                            Delete chat history
-                            <a href="javascript:void(0)" class="text-red pull-right"><i class="fa fa-trash-o"></i></a>
-                        </label>
-                    </div>
-                    <!-- /.form-group -->
-                </form>
-            </div>
-            <!-- /.tab-pane -->
-        </div>
-    </aside>
-
-    <div class="control-sidebar-bg"></div>
 </div>
 
 <script src="/AdminLTE-2.4.2/bower_components/jquery/dist/jquery.min.js"></script>
@@ -535,15 +302,16 @@
 <script src="/AdminLTE-2.4.2/dist/js/adminlte.min.js"></script>
 <script src="/AdminLTE-2.4.2/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
 
-<script>
-    $(function () {
-        $('.datepicker').datepicker({
-            format: 'yyyy-mm-dd',
-//            format: 'U',
-            autoclose: true
-        });
-    });
-</script>
+<%--<script>
+     $(function () {
+         $('.datepicker').datepicker({
+             // format: 'yyyy-mm-dd',
+             format: 'dd.mm.yyyy',
+ //            format: 'U',
+             autoclose: true
+         });
+     });
+</script>--%>
 
 </body>
 </html>

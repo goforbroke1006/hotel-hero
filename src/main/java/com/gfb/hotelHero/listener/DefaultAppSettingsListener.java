@@ -21,8 +21,10 @@ public class DefaultAppSettingsListener implements ServletContextListener {
     public void contextInitialized(ServletContextEvent event) {
         SpringBeanAutowiringSupport.processInjectionBasedOnCurrentContext(this);
 
-        if (appSettingsDao.findAll().size() == 0) {
+        boolean settingsPresetns = appSettingsDao.findAll().size() != 0;
+        if (!settingsPresetns) {
             AppSettings settings = new AppSettings();
+            settings.setDateFormat("dd.mm.yyyy");
             settings.setPaymentRegexpList(
                     "[\\w\\s]+[\\d\\s\\,]+руб.[\\s]+([\\d]{2}.[\\d]{2}.[\\d]{4})[\\s]+[\\d\\w\\sа-яА-ЯёЁ]+" +
                     "\n" +

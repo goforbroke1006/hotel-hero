@@ -11,12 +11,12 @@
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
 
-    <listener>
+    <!--<listener>
         <listener-class>com.gfb.hotelHero.listener.GlobalVarsListener</listener-class>
-    </listener>
-    <listener>
+    </listener>-->
+    <!--<listener>
         <listener-class>com.gfb.hotelHero.listener.DefaultAppSettingsListener</listener-class>
-    </listener>
+    </listener>-->
 
     <context-param>
         <param-name>contextConfigLocation</param-name>

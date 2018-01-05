@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository(value = "appSettingsDao")
-public class AppSettingsDaoImpl extends BaseDao<AppSettings> implements AppSettingsDao {
+public class AppSettingsDaoImpl extends BaseDao<AppSettings, Long> implements AppSettingsDao {
 
     @Override
     public List<AppSettings> findAll() {

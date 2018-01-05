@@ -5,11 +5,55 @@ import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-public class BaseDao<T> {
+import java.io.Serializable;
+import java.lang.reflect.ParameterizedType;
+import java.util.List;
+
+public abstract class BaseDao<ENTITY_CLASS, PK_CLASS> {
 
     private static final Logger LOGGER = Logger.getLogger(BaseDao.class);
 
-    public void add(T entity) {
+    private static int suffix;
+
+    private Class getModelClass() throws IllegalAccessException, InstantiationException {
+        return (
+                (Class) (
+                        (ParameterizedType) this.getClass().getGenericSuperclass()
+                ).getActualTypeArguments()[0]
+        ).newInstance().getClass();
+    }
+
+    @SuppressWarnings("unchecked")
+    public List<ENTITY_CLASS> findAll() {
+        try {
+            Session session = HibernateUtil.getSessionFactory().openSession();
+            String fullName = null;
+            fullName = getModelClass().getName();
+
+            String prefix = "_" + fullName.replaceAll("[\\W]", "_") + (++suffix);
+            return session
+                    .createQuery("SELECT " + prefix + " FROM " + fullName + " " + prefix)
+                    .list();
+        } catch (IllegalAccessException | InstantiationException e) {
+            e.printStackTrace();
+            LOGGER.error(e.getMessage());
+        }
+        return null;
+    }
+
+    @SuppressWarnings("unchecked")
+    public ENTITY_CLASS find(PK_CLASS primaryKey) {
+        try {
+            Session session = HibernateUtil.getSessionFactory().openSession();
+            return (ENTITY_CLASS) session.get(getModelClass(), (Serializable) primaryKey);
+        } catch (IllegalAccessException | InstantiationException e) {
+            e.printStackTrace();
+            LOGGER.error(e.getMessage());
+        }
+        return null;
+    }
+
+    public void add(ENTITY_CLASS entity) {
         Session session = null;
         Transaction tx = null;
 
@@ -31,13 +75,57 @@ public class BaseDao<T> {
         }
     }
 
-    public void delete(T entity) {
+    public void edit(ENTITY_CLASS entity) {
         Session session = null;
         Transaction tx = null;
 
         try {
             session = HibernateUtil.getSessionFactory().openSession();
             tx = session.beginTransaction();
+            session.update(entity);
+            session.flush();
+            tx.commit();
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage());
+            if (tx != null) {
+                tx.rollback();
+            }
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
+    }
+
+    public void delete(ENTITY_CLASS entity) {
+        Session session = null;
+        Transaction tx = null;
+
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            tx = session.beginTransaction();
+            session.delete(entity);
+            session.flush();
+            tx.commit();
+        } catch (Exception e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
+    }
+
+    public void deleteById(PK_CLASS primaryKey) {
+        Session session = null;
+        Transaction tx = null;
+
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            tx = session.beginTransaction();
+            ENTITY_CLASS entity = find(primaryKey);
             session.delete(entity);
             session.flush();
             tx.commit();

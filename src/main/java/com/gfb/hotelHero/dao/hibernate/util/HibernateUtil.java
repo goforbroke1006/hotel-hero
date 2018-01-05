@@ -6,6 +6,9 @@ import org.hibernate.cfg.Configuration;
 //import org.hibernate.service.ServiceRegistry;
 //import org.hibernate.service.ServiceRegistryBuilder;
 
+import javax.validation.Validation;
+import javax.validation.Validator;
+import javax.validation.ValidatorFactory;
 import java.util.Properties;
 
 public class HibernateUtil {
@@ -33,6 +36,9 @@ public class HibernateUtil {
 //            sessionFactory = configuration.buildSessionFactory(serviceRegistry);
 
             sessionFactory = new Configuration().configure().buildSessionFactory();
+
+//            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+//            Validator validator = factory.getValidator();
         }
         return sessionFactory;
     }

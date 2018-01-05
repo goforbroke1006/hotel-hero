@@ -17,7 +17,17 @@
         <property name="connection.release_mode">auto</property>
 
         <!--<mapping package="com.gfb.hotelHero.domain"/>-->
-        <mapping class="com.gfb.hotelHero.domain.PaymentLog"/>
+        <mapping class="com.gfb.hotelHero.domain.Address"/>
         <mapping class="com.gfb.hotelHero.domain.AppSettings"/>
+        <mapping class="com.gfb.hotelHero.domain.IdentityDocument"/>
+        <mapping class="com.gfb.hotelHero.domain.PaymentLog"/>
+        <mapping class="com.gfb.hotelHero.domain.ReceivingPoint"/>
+
+        <!--<event type="pre-update">
+            <listener class="org.hibernate.cfg.beanvalidation.BeanValidationEventListener"/>
+        </event>
+        <event type="pre-insert">
+            <listener class="org.hibernate.cfg.beanvalidation.BeanValidationEventListener"/>
+        </event>-->
     </session-factory>
 </hibernate-configuration>

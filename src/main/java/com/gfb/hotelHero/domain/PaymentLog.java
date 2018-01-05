@@ -10,7 +10,7 @@ public class PaymentLog implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "vkontakte_message_id")
     private Long vkontakteMessageId;
 

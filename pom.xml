@@ -93,7 +93,7 @@
         </dependency>
 
         <!-- Spring -->
-        <dependency>
+        <!--<dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
             <version>${spring.version}</version>
@@ -103,11 +103,11 @@
                     <groupId>commons-logging</groupId>
                 </exclusion>
             </exclusions>
-        </dependency>
+        </dependency>-->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
-            <version>${spring.version}</version>
+            <version>4.3.7.RELEASE</version>
         </dependency>
 
         <!-- JETTY DEPENDENCIES -->
@@ -170,10 +170,11 @@
         </dependency>
 
         <!-- SQL storage -->
+
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
-            <version>3.6.9.Final</version>
+            <version>5.2.12.Final</version>
         </dependency>
         <dependency>
             <groupId>org.hibernate</groupId>
@@ -183,7 +184,7 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
-            <version>3.6.4.Final</version>
+            <version>5.2.12.Final</version>
             <exclusions>
                 <exclusion>
                     <groupId>cglib</groupId>
@@ -201,6 +202,64 @@
             <artifactId>sqlite-jdbc</artifactId>
             <version>3.6.0</version>
         </dependency>
+
+        <!-- Entities validation -->
+        <!--<dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>1.0.0.GA</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>4.1.0.Final</version>
+        </dependency>-->
+        <!--<dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>2.0.1.Final</version>
+        </dependency>-->
+        <!--<dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>6.0.7.Final</version>
+        </dependency>-->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>5.4.1.Final</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/javax.validation/validation-api -->
+        <!--<dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>2.0.1.Final</version>
+        </dependency>-->
+        <!-- https://mvnrepository.com/artifact/org.glassfish/javax.el -->
+        <!--<dependency>
+            <groupId>org.glassfish</groupId>
+            <artifactId>javax.el</artifactId>
+            <version>3.0.1-b08</version>
+        </dependency>-->
+
+
+        <!--<dependency>
+            <groupId>javax.el</groupId>
+            <artifactId>javax.el-api</artifactId>
+            <version>3.0.0</version>
+        </dependency>-->
+        <!--<dependency>
+            <groupId>javax.persistence</groupId>
+            <artifactId>persistence-api</artifactId>
+            <version>1.0</version>
+        </dependency>-->
+
+
+        <!--<dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>1.0.0.GA</version>
+        </dependency>-->
 
         <!-- Manage XLS documents -->
         <dependency>

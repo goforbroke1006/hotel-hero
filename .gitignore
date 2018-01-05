@@ -7,5 +7,10 @@
 !/src/main/java/com/gfb/hotelHero/ddengi
 /dependency-reduced-pom.xml
 
+/src/main/webapp/WEB-INF/resources/**
+!/src/main/webapp/WEB-INF/resources/.bowerrc
+!/src/main/webapp/WEB-INF/resources/bower.json
+
 bower_components
 *.db
+*.xls#

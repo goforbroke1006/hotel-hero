@@ -16,7 +16,8 @@
     <context:component-scan base-package="com.gfb.hotelHero"/>
 
     <mvc:resources mapping="/AdminLTE-2.4.2/**" location="WEB-INF/AdminLTE-2.4.2/"/>
-    <mvc:resources mapping="/bootstrap/**" location="WEB-INF/bootstrap/"/>
+    <!--<mvc:resources mapping="/bootstrap/**" location="WEB-INF/bootstrap/"/>-->
+    <mvc:resources mapping="/resources/**" location="WEB-INF/resources/"/>
     <!--<mvc:resources mapping="/s/**" location="WEB-INF/scripts/" />-->
     <!--<mvc:resources mapping="/favicon.ico" location="WEB-INF/images/favicon.ico"/>-->
 

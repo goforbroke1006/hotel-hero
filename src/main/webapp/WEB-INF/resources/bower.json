@@ -1,16 +1,9 @@
 {
-  "name": "admin-lte",
-  "homepage": "https://adminlte.io",
+  "name": "hotel-hero-resources",
   "authors": [
-    "Abdullah Almsaeed <abdullah@almsaeedstudio.com>"
+    "Sergey Cherkesov <go.for.broke1006@gmail.com>"
   ],
   "description": "Admin dashboard and control panel template",
-  "main": [
-    "index2.html",
-    "dist/css/AdminLTE.css",
-    "dist/js/app.js",
-    "build/less/AdminLTE.less"
-  ],
   "keywords": [
     "css",
     "js",

@@ -23,9 +23,9 @@ public class AppSettingsDaoImpl extends BaseDao<AppSettings, Long> implements Ap
     public AppSettings findActive() {
         Session session = HibernateUtil.getSessionFactory().openSession();
         List list = session
-                .createQuery("SELECT _as FROM com.gfb.hotelHero.domain.AppSettings _as " +
-                        "ORDER BY id DESC " +
-                        "LIMIT 1")
+                .createQuery(
+                        "SELECT _as FROM com.gfb.hotelHero.domain.AppSettings _as ORDER BY id DESC")
+                .setMaxResults(1)
                 .list();
         return list.size() > 0 ? (AppSettings) list.get(0) : null;
     }

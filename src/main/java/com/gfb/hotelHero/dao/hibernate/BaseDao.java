@@ -1,9 +1,10 @@
 package com.gfb.hotelHero.dao.hibernate;
 
-import com.gfb.hotelHero.dao.hibernate.util.HibernateUtil;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
@@ -14,6 +15,9 @@ public abstract class BaseDao<ENTITY_CLASS, PK_CLASS> {
     private static final Logger LOGGER = Logger.getLogger(BaseDao.class);
 
     private static int suffix;
+    
+    @Autowired
+    private SessionFactory sessionFactory;
 
     private Class getModelClass() throws IllegalAccessException, InstantiationException {
         return (
@@ -26,7 +30,7 @@ public abstract class BaseDao<ENTITY_CLASS, PK_CLASS> {
     @SuppressWarnings("unchecked")
     public List<ENTITY_CLASS> findAll() {
         try {
-            Session session = HibernateUtil.getSessionFactory().openSession();
+            Session session = sessionFactory.openSession();
             String fullName = null;
             fullName = getModelClass().getName();
 
@@ -44,7 +48,7 @@ public abstract class BaseDao<ENTITY_CLASS, PK_CLASS> {
     @SuppressWarnings("unchecked")
     public ENTITY_CLASS find(PK_CLASS primaryKey) {
         try {
-            Session session = HibernateUtil.getSessionFactory().openSession();
+            Session session = sessionFactory.openSession();
             return (ENTITY_CLASS) session.get(getModelClass(), (Serializable) primaryKey);
         } catch (IllegalAccessException | InstantiationException e) {
             e.printStackTrace();
@@ -80,7 +84,7 @@ public abstract class BaseDao<ENTITY_CLASS, PK_CLASS> {
         Transaction tx = null;
 
         try {
-            session = HibernateUtil.getSessionFactory().openSession();
+            session = sessionFactory.openSession();
             tx = session.beginTransaction();
             session.update(entity);
             session.flush();
@@ -102,7 +106,7 @@ public abstract class BaseDao<ENTITY_CLASS, PK_CLASS> {
         Transaction tx = null;
 
         try {
-            session = HibernateUtil.getSessionFactory().openSession();
+            session = sessionFactory.openSession();
             tx = session.beginTransaction();
             session.delete(entity);
             session.flush();
@@ -123,7 +127,7 @@ public abstract class BaseDao<ENTITY_CLASS, PK_CLASS> {
         Transaction tx = null;
 
         try {
-            session = HibernateUtil.getSessionFactory().openSession();
+            session = sessionFactory.openSession();
             tx = session.beginTransaction();
             ENTITY_CLASS entity = find(primaryKey);
             session.delete(entity);

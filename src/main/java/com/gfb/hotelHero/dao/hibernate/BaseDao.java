@@ -17,7 +17,7 @@ public abstract class BaseDao<ENTITY_CLASS, PK_CLASS> {
     private static int suffix;
     
     @Autowired
-    private SessionFactory sessionFactory;
+    protected SessionFactory sessionFactory;
 
     private Class getModelClass() throws IllegalAccessException, InstantiationException {
         return (

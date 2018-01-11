@@ -16,6 +16,12 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
     -->
 
     <context:component-scan base-package="com.gfb.hotelHero.dao,com.gfb.hotelHero.listener"/>
+    
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+        <property name="configLocation">
+            <value>hibernate.cfg.xml</value>
+        </property>
+    </bean>
 
     <bean id="drebeDengiClient" class="com.gfb.hotelHero.ddengi.DrebeDengiClient">
         <constructor-arg value="#{systemEnvironment['DREBEDENGI__WSDL_LOCATION']}"/>

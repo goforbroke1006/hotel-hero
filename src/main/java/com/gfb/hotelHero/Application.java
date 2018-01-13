@@ -29,10 +29,10 @@ public class Application {
 
     public static void main4(String[] args) throws Exception {
         ClassPathXmlApplicationContext ctx =
-                new ClassPathXmlApplicationContext("application-context.xml");
+                new ClassPathXmlApplicationContext("applicationContext.xml");
         VkontakteClient client = (VkontakteClient) ctx.getBean("vkontakteClient");
         GetHistoryResponse history = client.getMessagesPort().getHistory(new GetHistoryRequest(
-                2314852,49, GetHistoryRequest.PeerTypes.GROUP_CONVERSATION));
+                2314852, GetHistoryRequest.PeerTypes.GROUP_CONVERSATION, 49));
 
         return;
     }

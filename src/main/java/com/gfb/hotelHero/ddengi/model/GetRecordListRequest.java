@@ -10,8 +10,6 @@ import javax.xml.bind.annotation.*;
 @XmlSeeAlso({GetRecordListRequestParams.class})
 public class GetRecordListRequest extends BaseRequest {
 
-//    @XmlElementWrapper(name = "params")
-//    @XmlElement(name = "item")
     protected GetRecordListRequestParams params = new GetRecordListRequestParams();
 
     public GetRecordListRequestParams getParams() {

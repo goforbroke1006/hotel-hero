@@ -27,10 +27,17 @@ public class GetHistoryRequest extends BaseRequest {
     private HistoryOrder order = HistoryOrder.SORT_DESC;
 
     public GetHistoryRequest(Integer userId, Integer peerId) {
-        this(userId, peerId, PeerTypes.USER);
+        this(userId, PeerTypes.USER, peerId, 20);
     }
 
-    public GetHistoryRequest(Integer userId, Integer peerId, PeerTypes peerType) {
+    public GetHistoryRequest(Integer userId, PeerTypes peerType, Integer peerId) {
+        this.userId = userId;
+        this.peerType = peerType;
+        this.peerId = peerId;
+    }
+
+    public GetHistoryRequest(Integer userId, PeerTypes peerType, Integer peerId, Integer count) {
+        this.count = count;
         this.userId = userId;
         this.peerType = peerType;
         this.peerId = peerId;
@@ -44,7 +51,7 @@ public class GetHistoryRequest extends BaseRequest {
     public Map<String, Object> getContext() {
         Map<String, Object> ctx = new HashMap<>();
 //        ctx.put("offset", getOffset());
-//        ctx.put("count", getCount());
+        ctx.put("count", getCount());
         ctx.put("user_id", getUserId());
         ctx.put("peer_id", getPeerIdCanonical());
 //        ctx.put("start_message_id", getStartMessageId());

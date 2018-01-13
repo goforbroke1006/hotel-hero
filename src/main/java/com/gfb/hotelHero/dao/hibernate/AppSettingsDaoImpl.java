@@ -1,7 +1,6 @@
 package com.gfb.hotelHero.dao.hibernate;
 
 import com.gfb.hotelHero.dao.AppSettingsDao;
-import com.gfb.hotelHero.dao.hibernate.util.HibernateUtil;
 import com.gfb.hotelHero.domain.AppSettings;
 import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
@@ -13,7 +12,7 @@ public class AppSettingsDaoImpl extends BaseDao<AppSettings, Long> implements Ap
 
     @Override
     public List<AppSettings> findAll() {
-        Session session = HibernateUtil.getSessionFactory().openSession();
+        Session session = sessionFactory.openSession();
         return session
                 .createQuery("SELECT _as FROM com.gfb.hotelHero.domain.AppSettings _as")
                 .list();
@@ -21,7 +20,7 @@ public class AppSettingsDaoImpl extends BaseDao<AppSettings, Long> implements Ap
 
     @Override
     public AppSettings findActive() {
-        Session session = HibernateUtil.getSessionFactory().openSession();
+        Session session = sessionFactory.openSession();
         List list = session
                 .createQuery(
                         "SELECT _as FROM com.gfb.hotelHero.domain.AppSettings _as ORDER BY id DESC")

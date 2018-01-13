@@ -3,6 +3,8 @@ package com.gfb.hotelHero.vkontakte.domain.messages;
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.codehaus.jackson.annotate.JsonProperty;
 
+import java.util.List;
+
 @JsonIgnoreProperties({
         "attachments",
         "random_id",
@@ -30,6 +32,9 @@ public class HistoryItem {
 
     @JsonProperty("out")
     private Integer out;
+
+    @JsonProperty("fwd_messages")
+    private List<HistoryItem> fwdMessages;
 
     @JsonProperty("chat_id")
     private Integer chatId;
@@ -94,6 +99,15 @@ public class HistoryItem {
 
     public HistoryItem setOut(Integer out) {
         this.out = out;
+        return this;
+    }
+
+    public List<HistoryItem> getFwdMessages() {
+        return fwdMessages;
+    }
+
+    public HistoryItem setFwdMessages(List<HistoryItem> fwdMessages) {
+        this.fwdMessages = fwdMessages;
         return this;
     }
 

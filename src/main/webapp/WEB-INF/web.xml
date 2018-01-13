@@ -18,10 +18,10 @@
         <listener-class>com.gfb.hotelHero.listener.DefaultAppSettingsListener</listener-class>
     </listener>
 
-    <context-param>
+    <!--<context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>classpath:/application-context.xml</param-value>
-    </context-param>
+    </context-param>-->
 
     <!-- Handles all requests into the application -->
     <servlet>

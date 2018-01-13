@@ -62,7 +62,7 @@ public abstract class BaseDao<ENTITY_CLASS, PK_CLASS> {
         Transaction tx = null;
 
         try {
-            session = HibernateUtil.getSessionFactory().openSession();
+            session = sessionFactory.openSession();
             tx = session.beginTransaction();
             session.save(entity);
             session.flush();

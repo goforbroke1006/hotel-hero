@@ -51,7 +51,7 @@ public class PaymentAccountingController {
         GetRecordListResponse o = drebeDengiClient.getRecordList(request);
         model.addAttribute("records", o);
 
-        GetHistoryRequest hr = new GetHistoryRequest(2314852, 50, GetHistoryRequest.PeerTypes.GROUP_CONVERSATION);
+        GetHistoryRequest hr = new GetHistoryRequest(2314852, GetHistoryRequest.PeerTypes.GROUP_CONVERSATION, 50, 100);
         GetHistoryResponse history = vkontakteClient.getMessagesPort().getHistory(hr);
 
         Pattern regexp = Pattern.compile("[\\w\\s]+[\\d\\s\\,]+руб.[\\s]+([\\d]{2}.[\\d]{2}.[\\d]{4})[\\s]+[\\d\\w\\sа-яА-ЯёЁ]+");

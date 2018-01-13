@@ -11,6 +11,7 @@ import javax.xml.ws.BindingProvider;
 import javax.xml.ws.Dispatch;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Arrays;
 
 //@Service
 public class DrebeDengiClient {
@@ -59,6 +60,33 @@ public class DrebeDengiClient {
 
         Object o = dispatch.invoke(request);
         return (GetRecordListResponse) o;
+    }
+
+    public SetRecordListResponse setRecordList(SetRecordListRequest request) {
+        request.setCredentials(apiId, login, password);
+
+        JAXBContext jaxbContext;
+        try {
+            jaxbContext = JAXBContext.newInstance(
+                    Record.class,
+                    SetRecordListRequest.class
+            );
+        } catch (JAXBException e) {
+            e.printStackTrace();
+            return null;
+        }
+
+        Dispatch<Object> dispatch = service.createDispatch(
+                new QName("urn:ddengi", "SoapPort"),
+                jaxbContext,
+                javax.xml.ws.Service.Mode.PAYLOAD);
+
+        Object o = dispatch.invoke(request);
+        return (SetRecordListResponse) o;
+    }
+
+    public SetRecordListResponse addRecordList(Record record) {
+        return setRecordList(new SetRecordListRequest().setList(Arrays.asList(record)));
     }
 
 }

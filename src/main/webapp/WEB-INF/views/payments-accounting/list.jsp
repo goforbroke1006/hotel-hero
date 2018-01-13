@@ -38,7 +38,7 @@
 
             <div class="box">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Завершенные оплаты</h3>
+                    <h3 class="box-title">Новые оплаты в чате</h3>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
@@ -46,11 +46,19 @@
                         <tr>
                             <th>ID</th>
                             <th>Текст сообщения</th>
+                            <th>Операции</th>
                         </tr>
-                        <c:forEach items="${paymentLogs}" var="log">
+                        <c:forEach items="${unsentLogs}" var="log">
                             <tr>
                                 <td>${log.vkontakteMessageId}</td>
                                 <td>${log.messageText}</td>
+                                <td>
+                                    <a href="/payments-accounting/log/${log.vkontakteMessageId}/approve"
+                                       class="btn btn-success js_approve_move_to_ddengi"
+                                       title="Будет перемещенно в &quot;Дребеденьги&quot;">Одобрить</a>
+                                    <a href="/payments-accounting/log/${log.vkontakteMessageId}/reject"
+                                       class="btn btn-danger">Отклонить</a>
+                                </td>
                             </tr>
                         </c:forEach>
                     </table>
@@ -67,7 +75,7 @@
                 </div>
             </div>
 
-            <div class="box">
+            <%--<div class="box">
                 <div class="box-header with-border">
                     <h3 class="box-title">Оплаты в DrebeDengi</h3>
                 </div>
@@ -135,7 +143,7 @@
                         <li><a href="#">&raquo;</a></li>
                     </ul>
                 </div>
-            </div>
+            </div>--%>
 
         </section>
         <!-- /.content -->
@@ -148,6 +156,18 @@
 </div>
 
 <jsp:include page="../--includes/footer-resources.jsp"/>
+
+<script>
+    $(function () {
+        $('.js_approve_move_to_ddengi').click(function () {
+            var $btn = $(this);
+            $.get($btn.attr('href')).success(function () {
+                alert('Строка успешно перемещена в Дребеденьги');
+                $btn.closest('tr').remove();
+            });
+        });
+    });
+</script>
 
 </body>
 </html>

@@ -5,6 +5,8 @@ import javax.xml.namespace.QName;
 import javax.xml.ws.*;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 
 /**
@@ -17,6 +19,7 @@ import java.net.URL;
 public class DdengiService
     extends Service
 {
+    public final static DateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss");
 
     private final static URL DDENGISERVICE_WSDL_LOCATION;
     private final static WebServiceException DDENGISERVICE_EXCEPTION;

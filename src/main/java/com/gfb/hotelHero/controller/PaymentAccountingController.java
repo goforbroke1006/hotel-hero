@@ -1,40 +1,32 @@
 package com.gfb.hotelHero.controller;
 
-import com.gfb.hotelHero.dao.PaymentLogDao;
-import com.gfb.hotelHero.ddengi.DrebeDengiClient;
-import com.gfb.hotelHero.ddengi.model.GetRecordListRequest;
-import com.gfb.hotelHero.ddengi.model.GetRecordListResponse;
-import com.gfb.hotelHero.ddengi.model.Item;
-import com.gfb.hotelHero.domain.PaymentLog;
-import com.gfb.hotelHero.vkontakte.VkontakteClient;
-import com.gfb.hotelHero.vkontakte.domain.messages.GetHistoryRequest;
-import com.gfb.hotelHero.vkontakte.domain.messages.GetHistoryResponse;
-import com.gfb.hotelHero.vkontakte.domain.messages.HistoryItem;
+import com.gfb.hotelHero.ddengi.model.Record;
+import com.gfb.hotelHero.service.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import java.util.Arrays;
-import java.util.List;
-import java.util.regex.Pattern;
 
 @Controller
 @RequestMapping("/payments-accounting")
 public class PaymentAccountingController {
 
-    @Autowired
-    private PaymentLogDao paymentLogDao;
+//    @Autowired
+//    private PaymentLogDao paymentLogDao;
+//
+//    @Autowired
+//    private DrebeDengiClient drebeDengiClient;
+//
+//    @Autowired
+//    private VkontakteClient vkontakteClient;
 
     @Autowired
-    private DrebeDengiClient drebeDengiClient;
-
-    @Autowired
-    private VkontakteClient vkontakteClient;
+    private PaymentService paymentLogService;
 
     @RequestMapping(value = "/list")
     public String list(Model model) {
-        List<PaymentLog> paymentLogList = paymentLogDao.findAll();
+        /*List<PaymentLog> paymentLogList = paymentLogDao.findAll();
         model.addAttribute("paymentLogs", paymentLogList);
 
         GetRecordListRequest request = new GetRecordListRequest();
@@ -54,7 +46,7 @@ public class PaymentAccountingController {
         GetHistoryRequest hr = new GetHistoryRequest(2314852, GetHistoryRequest.PeerTypes.GROUP_CONVERSATION, 50, 100);
         GetHistoryResponse history = vkontakteClient.getMessagesPort().getHistory(hr);
 
-        Pattern regexp = Pattern.compile("[\\w\\s]+[\\d\\s\\,]+руб.[\\s]+([\\d]{2}.[\\d]{2}.[\\d]{4})[\\s]+[\\d\\w\\sа-яА-ЯёЁ]+");
+        Pattern regexp = Pattern.compile("[\\w\\s]+[\\d\\s,]+руб.[\\s]+([\\d]{2}.[\\d]{2}.[\\d]{4})[\\s]+[\\d\\w\\sа-яА-ЯёЁ]+");
         for (HistoryItem item : history.getItems()) {
             if (regexp.matcher(item.getMessage()).matches()) {
                 PaymentLog paymentLog = new PaymentLog();
@@ -63,9 +55,18 @@ public class PaymentAccountingController {
             }
         }
 
-        model.addAttribute("history", history);
+        model.addAttribute("history", history);*/
+
+        paymentLogService.loadAndPersistUpdates();
+        model.addAttribute("unsentLogs", paymentLogService.getUnsentPaymentLogs());
 
         return "payments-accounting/list";
+    }
+
+    @RequestMapping(value = "/log/{vkontakteMessageId}/approve")
+    public String approve(@PathVariable String vkontakteMessageId) {
+        paymentLogService.writeToDdengi(Long.valueOf(vkontakteMessageId));
+        return "redirect:list";
     }
 
     @RequestMapping(value = "/vk-trace")

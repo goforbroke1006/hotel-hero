@@ -1,7 +1,5 @@
 package com.gfb.hotelHero.ddengi.model;
 
-//import com.gfb.hotelHero.ddengi.GetRecordListParams;
-
 public class ObjectFactory {
 
     /**

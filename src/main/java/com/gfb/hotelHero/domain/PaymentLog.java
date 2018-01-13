@@ -16,8 +16,8 @@ public class PaymentLog implements Serializable {
     @Column(name = "message_text")
     private String messageText;
 
-    @Column(name = "moved")
-    private boolean moved;
+    @Column(name = "ddengiServerId", nullable = true)
+    private int ddengiServerId;
 
     public Long getVkontakteMessageId() {
         return vkontakteMessageId;
@@ -37,12 +37,12 @@ public class PaymentLog implements Serializable {
         return this;
     }
 
-    public boolean isMoved() {
-        return moved;
+    public int getDdengiServerId() {
+        return ddengiServerId;
     }
 
-    public PaymentLog setMoved(boolean moved) {
-        this.moved = moved;
+    public PaymentLog setDdengiServerId(int ddengiServerId) {
+        this.ddengiServerId = ddengiServerId;
         return this;
     }
 

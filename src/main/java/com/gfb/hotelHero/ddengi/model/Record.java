@@ -1,6 +1,7 @@
 package com.gfb.hotelHero.ddengi.model;
 
 import com.gfb.hotelHero.ddengi.DdengiService;
+import org.hibernate.validator.constraints.Length;
 
 import javax.xml.bind.annotation.XmlElement;
 import java.text.ParseException;
@@ -8,15 +9,42 @@ import java.util.Date;
 
 public class Record {
 
+    public static final int RUSSIAN_RUBLE_ID = 17;
+    public enum OperationType {INCOME, WASTE, MOVE, CHANGE}
+
+    // client_id
+    // server_id
+    // server_move_id|client_move_id
+    // client_change_id
+    // place_id
+    // budget_object_id
+    // sum
+    // operation_date
+    // comment
+    // currency_id
+
+    private Long clientId;
     private Long serverId;
     private Long placeId;
     private Long budgetObjectId;
     private float sum;
     private Date operationDate;
+
+    @Length(max = 2048)
     private String comment;
-    private Long currencyId;
+    private int currencyId;
     private boolean duty;
-    private Long operationType;
+    private OperationType operationType;
+
+    @XmlElement(name = "client_id")
+    public Long getClientId() {
+        return clientId;
+    }
+
+    public Record setClientId(Long clientId) {
+        this.clientId = clientId;
+        return this;
+    }
 
     @XmlElement(name = "server_id")
     public Long getServerId() {
@@ -88,11 +116,11 @@ public class Record {
     }
 
     @XmlElement(name = "currency_id")
-    public Long getCurrencyId() {
+    public int getCurrencyId() {
         return currencyId;
     }
 
-    public Record setCurrencyId(Long currencyId) {
+    public Record setCurrencyId(int currencyId) {
         this.currencyId = currencyId;
         return this;
     }
@@ -107,13 +135,27 @@ public class Record {
         return this;
     }
 
-    @XmlElement(name = "operation_type")
-    public Long getOperationType() {
+    public OperationType getOperationType() {
         return operationType;
     }
 
-    public Record setOperationType(Long operationType) {
+    public Record setOperationType(OperationType operationType) {
         this.operationType = operationType;
         return this;
+    }
+
+    @XmlElement(name = "operation_type")
+    public int getOperationTypeInt() throws Exception {
+        switch (this.operationType) {
+            case INCOME:
+                return 2;
+            case WASTE:
+                return 3;
+            case MOVE:
+                return 4;
+            case CHANGE:
+                return 5;
+        }
+        throw new Exception("Incorrect operation type");
     }
 }

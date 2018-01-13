@@ -14,7 +14,7 @@ public class PaymentLogDaoImpl extends BaseDao<PaymentLog, Long> implements Paym
     @SuppressWarnings("unchecked")
     public List<PaymentLog> findUnsent() {
         return sessionFactory.openSession()
-                .createQuery("FROM PaymentLog WHERE moved = FALSE").list();
+                .createQuery("FROM PaymentLog WHERE ddengiServerId IS NULL OR ddengiServerId = 0").list();
     }
 
     @Override

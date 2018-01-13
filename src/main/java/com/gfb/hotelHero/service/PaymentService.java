@@ -43,8 +43,7 @@ public class PaymentService {
 
             PaymentLog log = new PaymentLog()
                     .setVkontakteMessageId(item.getId())
-                    .setMessageText(item.getMessage())
-                    .setMoved(false);
+                    .setMessageText(item.getMessage());
             paymentLogDao.add(log);
         }
     }
@@ -63,6 +62,10 @@ public class PaymentService {
     public void writeToDdengi(PaymentLog log) {
         Record record = new Record();
         parseMessage(log.getMessageText(), record);
+
+        record.setClientId(log.getVkontakteMessageId());
+        record.setCurrencyId(Record.RUSSIAN_RUBLE_ID);
+
         SetRecordListResponse response = drebeDengiClient.addRecordList(record);
         assert response != null;
     }

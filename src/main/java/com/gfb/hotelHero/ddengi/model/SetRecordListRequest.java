@@ -11,6 +11,10 @@ import java.util.List;
 @XmlSeeAlso({Record.class})
 public class SetRecordListRequest extends BaseRequest {
 
+//    @XmlList
+//    @XmlElements(value = )
+    @XmlElementWrapper(name = "")
+    @XmlElement(name = "item")
     private List<Record> list;
 
     public List<Record> getList() {

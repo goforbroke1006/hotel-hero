@@ -63,8 +63,12 @@ public class PaymentService {
         Record record = new Record();
         parseMessage(log.getMessageText(), record);
 
-        record.setClientId(log.getVkontakteMessageId());
+        record.setClientId(log.getVkontakteMessageId() + 1);
         record.setCurrencyId(Record.RUSSIAN_RUBLE_ID);
+        record.setOperationType(Record.OperationType.WASTE);
+        record.setPlaceId(40034L);
+        record.setBudgetObjectId(40012L);
+        record.setComment("Test waste");
 
         SetRecordListResponse response = drebeDengiClient.addRecordList(record);
         assert response != null;

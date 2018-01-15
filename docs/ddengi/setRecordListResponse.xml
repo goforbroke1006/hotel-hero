@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<setRecordList xmlns:ns2="http://xml.apache.org/xml-soap" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <apiId>demo_api</apiId>
+    <login>demo@example.com</login>
+    <pass>demo</pass>
+    <list>
+        <item>
+            <budget_object_id>40012</budget_object_id>
+            <client_id>91653</client_id>
+            <comment>Test waste</comment>
+            <currency_id>17</currency_id>
+            <is_duty>false</is_duty>
+            <operation_date>2018-01-05 00-00-00</operation_date>
+            <operation_type>3</operation_type>
+            <place_id>40034</place_id>
+            <sum>4900.0</sum>
+        </item>
+    </list>
+</setRecordList>

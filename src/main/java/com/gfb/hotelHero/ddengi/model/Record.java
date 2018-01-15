@@ -3,10 +3,13 @@ package com.gfb.hotelHero.ddengi.model;
 import com.gfb.hotelHero.ddengi.DdengiService;
 import org.hibernate.validator.constraints.Length;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import java.text.ParseException;
 import java.util.Date;
 
+@XmlAccessorType(XmlAccessType.NONE)
 public class Record {
 
     public static final int RUSSIAN_RUBLE_ID = 17;

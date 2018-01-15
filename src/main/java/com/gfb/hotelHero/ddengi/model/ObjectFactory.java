@@ -30,4 +30,19 @@ public class ObjectFactory {
         return new GetRecordListReturnItem();
     }
 
+
+    /**
+     * Create an instance of {@link SetRecordListRequest }
+     */
+    public SetRecordListRequest createSetRecordListRequest() {
+        return new SetRecordListRequest();
+    }
+
+    /**
+     * Create an instance of {@link Record }
+     */
+    public Record createRecord() {
+        return new Record();
+    }
+
 }

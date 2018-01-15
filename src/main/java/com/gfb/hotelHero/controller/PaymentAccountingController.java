@@ -48,7 +48,7 @@ public class PaymentAccountingController {
     @RequestMapping(value = "/log/{vkontakteMessageId}/approve")
     public String approve(@PathVariable String vkontakteMessageId) {
         paymentLogService.writeToDdengi(Long.valueOf(vkontakteMessageId));
-        return "redirect:list";
+        return "redirect:/payments-accounting/list";
     }
 
     @RequestMapping(value = "/vk-trace")
